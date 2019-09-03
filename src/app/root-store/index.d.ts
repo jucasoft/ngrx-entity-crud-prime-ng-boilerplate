@@ -4,4 +4,5 @@ import * as RootStoreState from './state';
 
 export {RootStoreState, RootStoreSelectors, RootStoreModule};
 
-export * from './coin-store';
+export * from './router-store';
+export * from './slide-menu-store';

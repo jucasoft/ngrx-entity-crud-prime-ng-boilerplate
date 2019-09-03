@@ -1,0 +1,38 @@
+<p-card>
+  <div class="p-grid">
+    <div class="p-md-12 p-lg-6">
+      <p-panel header="LineChart">
+        <p-chart type="line" [data]="lineData"></p-chart>
+      </p-panel>
+    </div>
+    <div class="p-md-12 p-lg-6">
+      <p-panel header="PieChart">
+        <p-chart type="pie" [data]="pieData"></p-chart>
+      </p-panel>
+    </div>
+  </div>
+  <div class="p-grid">
+    <div class="p-md-12 p-lg-6">
+      <p-panel header="BarChart">
+        <p-chart type="bar" [data]="barData"></p-chart>
+      </p-panel>
+    </div>
+    <div class="p-md-12 p-lg-6">
+      <p-panel header="RadarChart">
+        <p-chart type="radar" [data]="radarData"></p-chart>
+      </p-panel>
+    </div>
+  </div>
+  <div class="p-grid">
+    <div class="p-md-12 p-lg-6">
+      <p-panel header="PolarAreaChart">
+        <p-chart type="polarArea" [data]="polarData"></p-chart>
+      </p-panel>
+    </div>
+    <div class="p-md-12 p-lg-6">
+      <p-panel header="DoughnutChart">
+        <p-chart type="doughnut" [data]="doughnutData"></p-chart>
+      </p-panel>
+    </div>
+  </div>
+</p-card>

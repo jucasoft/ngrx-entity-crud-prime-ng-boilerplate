@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SearchComponent} from '@components/search/search.component';
+import {InputTextModule} from 'primeng/inputtext';
 
 
 @NgModule({
@@ -8,7 +9,7 @@ import {SearchComponent} from '@components/search/search.component';
     SearchComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, InputTextModule
   ],
   exports: [
     SearchComponent
