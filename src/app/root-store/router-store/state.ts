@@ -2,11 +2,11 @@ import {RouterReducerState, SerializedRouterStateSnapshot} from '@ngrx/router-st
 import {NavigationExtras} from '@angular/router';
 
 export interface State extends RouterReducerState<SerializedRouterStateSnapshot> {
-  extra: NavigationExtras;
+  extras: NavigationExtras;
 }
 
 export const initialState: State = {
   state: null,
   navigationId: null,
-  extra: null,
+  extras: null,
 };

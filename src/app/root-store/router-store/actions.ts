@@ -1,5 +1,22 @@
 import {NavigationExtras} from '@angular/router';
 import {createAction, props} from '@ngrx/store';
+import {ROUTER_CANCEL, ROUTER_ERROR, ROUTER_NAVIGATION} from '@ngrx/router-store';
+
+export const RouterCancelAction = createAction(ROUTER_CANCEL, props<{
+  path: any[];
+  queryParams?: object;
+  extras?: NavigationExtras;
+}>());
+export const RouterErrorAction = createAction(ROUTER_ERROR, props<{
+  path: any[];
+  queryParams?: object;
+  extras?: NavigationExtras;
+}>());
+export const RouterNavigationAction = createAction(ROUTER_NAVIGATION, props<{
+  path: any[];
+  queryParams?: object;
+  extras?: NavigationExtras;
+}>());
 
 export const RouterGo = createAction(`[Router] Go`, props<{
   path: any[];
