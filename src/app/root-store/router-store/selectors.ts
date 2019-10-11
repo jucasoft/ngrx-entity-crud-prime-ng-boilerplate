@@ -1,7 +1,7 @@
 import {createFeatureSelector, createSelector, MemoizedSelector} from '@ngrx/store';
 import * as fromRouter from '@ngrx/router-store';
 import {RouterReducerState} from '@ngrx/router-store';
-import {NavigationExtras} from '@angular/router';
+import {Data, NavigationExtras, Params} from '@angular/router';
 import {State} from './state';
 import {evalData} from '@core/utils/j-utils';
 
@@ -35,3 +35,26 @@ export const {
   selectRouteData,      // select the current route data
   selectUrl,            // select the current url
 } = fromRouter.getSelectors(selectRouterState);
+
+export const all: MemoizedSelector<object, RuoteData> = createSelector(
+  selectQueryParams,
+  selectRouteParams,
+  selectRouteData,
+  selectUrl,
+  (selectQueryParamsA, selectRouteParamsA, selectRouteDataA, selectUrlA) => {
+    return {
+      selectQueryParams: selectQueryParamsA,
+      selectRouteParams: selectRouteParamsA,
+      selectRouteData: selectRouteDataA,
+      selectUrl: selectUrlA
+    };
+  }
+);
+
+export interface RuoteData {
+  selectQueryParams: Params;
+  selectRouteParams: Params;
+  selectRouteData: Data;
+  selectUrl: string;
+}
+

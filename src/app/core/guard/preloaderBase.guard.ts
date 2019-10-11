@@ -10,11 +10,11 @@ import {Actions, EntityCrudSelectors} from 'ngrx-entity-crud';
 
 
 export interface PreloaderGuardConfig<T> {
-  actions: Actions<T>;
-  selectors: EntityCrudSelectors<T, State>;
-  redirectPerform: ({id, item: T, routeState}) => Action;
-  selectId: (item: T) => string;
-  plantId: (id: string, item: Partial<T>) => Partial<T>;
+    actions: Actions<T>;
+    selectors: EntityCrudSelectors<T, State>;
+    redirectPerform: ({id, item: T, ruoteData: RuoteData}) => Action;
+    selectId: (item: T) => string;
+    plantId: (id: string, item: Partial<T>) => Partial<T>;
 }
 
 /**
@@ -38,51 +38,80 @@ export interface PreloaderGuardConfig<T> {
  *
  */
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class PreloaderBaseGuard<T> implements CanActivate {
 
-  protected config: PreloaderGuardConfig<T>;
+  /**
+   *  Esemplio di configurazione:
+   *  protected config: PreloaderGuardConfig<Process> = {
+   *      actions: ProcessStoreActions,
+   *      selectors: ProcessStoreSelectors,
+   *      redirectPerform: ({id, item: Process, routeState}) => {
+   *           const state: PopUpData<Process> = {
+   *             item,
+   *             props: {title: 'Edit Process', route: 'process'}
+   *           };
+   *           // apro la popUP
+   *           this.store$.dispatch(RouterStoreActions.RouterGo({
+   *             path: ['process', {outlets: {popUp: ['edit']}}],
+   *             extras: {state}
+   *           }));
+   *      },
+   *      selectId: Process.selectId,
+   *      plantId: Process.plantId
+   *  };
+   *
+   *  metodi presenti nell'entità per la gestione della chiave univoca:
+   *   static selectId: (item: Process) => string = item => item.id;
+   *   static plantId: (id: string, item: Process) => Process = (id, item) => {
+   *     item.id = id;
+   *     return item;
+   *   };
+   *
+   */
+    protected config: PreloaderGuardConfig<T>;
 
-  constructor(private store$: Store<State>) {
-  }
+    constructor(private store$: Store<State>) {
+    }
 
 
-  select<R>(config: PreloaderGuardConfig<T>): Observable<any> {
-    // return an Observable stream from the store
-    return this.store$.pipe(
-      // seleziono l'id passato nella rotta e l'elemento attualmente presente nello store.
-      select(createSelector(
-        RouterStoreSelectors.selectRouteParam('id'),
-        config.selectors.selectItemSelected,
-        (id: string, item: T) => ({id, item})
-      )),
-      // se non esiste l'id propago un errore, che permette alla rotta di proseguire senza precaricare dati
-      tap(({id, item}) => {
-        // se l'id dell'item attualmete selezionato NON corrisponde a quello passato nella rotta
-        // dispaccio l'azione per precaricare il dato.
-        if (evalData(() => config.selectId(item).toString() !== id.toString()), true) {
-          const searchItem: T = config.plantId(id, {}) as T;
-          this.store$.dispatch(config.actions.SelectRequest({item: searchItem}));
-        }
-      }),
-      // se l'id della rotta corrisponde a quello dell'elemento selezionato, procedo
-      filter(({id, item}) => evalData(() => config.selectId(item).toString() === id.toString(), false)),
-      // viene eseguito solo una volta e deregistrato
-      take(1),
-      // entro nel metodo che si occupa del redirect.
-      map(config.redirectPerform),
-      map(this.store$.dispatch),
-      // annnullo l'elemento precaricato
-      tap(() => this.store$.dispatch(config.actions.SelectItem({item: null})))
-    );
-  }
+    select<R>(config: PreloaderGuardConfig<T>): Observable<any> {
+        // return an Observable stream from the store
+        return this.store$.pipe(
+            // seleziono l'id passato nella rotta e l'elemento attualmente presente nello store.
+            select(createSelector(
+                RouterStoreSelectors.selectRouteParam('id'),
+                config.selectors.selectItemSelected,
+                RouterStoreSelectors.all,
+                (id: string, item: T) => ({id, item})
+            )),
+            // se non esiste l'id propago un errore, che permette alla rotta di proseguire senza precaricare dati
+            tap(({id, item}) => {
+                // se l'id dell'item attualmete selezionato NON corrisponde a quello passato nella rotta
+                // dispaccio l'azione per precaricare il dato.
+                if (evalData(() => config.selectId(item).toString() !== id.toString()), true) {
+                    const searchItem: T = config.plantId(id, {}) as T;
+                    this.store$.dispatch(config.actions.SelectRequest({item: searchItem}));
+                }
+            }),
+            // se l'id della rotta corrisponde a quello dell'elemento selezionato, procedo
+            filter(({id, item}) => evalData(() => config.selectId(item).toString() === id.toString(), false)),
+            // viene eseguito solo una volta e deregistrato
+            take(1),
+            // entro nel metodo che si occupa del redirect.
+            map(config.redirectPerform),
+            map(this.store$.dispatch),
+            // annnullo l'elemento precaricato
+            tap(() => this.store$.dispatch(config.actions.SelectItem({item: null})))
+        );
+    }
 
-  canActivate(): Observable<boolean> {
-    return this.select(this.config).pipe(
-      switchMap(() => of(false)),
-      // catturo l'errore propagato in caso di assenza dell'id, in questo caso proseguo senza precaricare dati.
-      catchError(() => of(false))
-    );
-  }
+    canActivate(): Observable<boolean> {
+        return this.select(this.config).pipe(
+            switchMap(() => of(false)),
+            // catturo l'errore propagato in caso di assenza dell'id, in questo caso proseguo senza precaricare dati.
+            catchError(() => of(false))
+        );
+    }
 }
