@@ -2,10 +2,10 @@ import {InjectionToken, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {EffectsModule} from '@ngrx/effects';
 import {RouterEffects} from './effects';
-import {ActionReducer, StoreModule} from '@ngrx/store';
 import {State} from './state';
+import {ActionReducer, StoreModule} from '@ngrx/store';
+import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
 import {featureReducer} from './reducer';
-import {StoreRouterConnectingModule} from '@ngrx/router-store';
 
 export const INJECTION_TOKEN = new InjectionToken<ActionReducer<State>>(`router-store Reducers`);
 
@@ -17,11 +17,13 @@ export const INJECTION_TOKEN = new InjectionToken<ActionReducer<State>>(`router-
     StoreRouterConnectingModule.forRoot({stateKey: 'router'})
   ],
   declarations: [],
-  providers: [RouterEffects,
+  providers: [
+    RouterEffects,
     {
       provide: INJECTION_TOKEN,
       useFactory: (): ActionReducer<State> => featureReducer
-    }]
+    },
+  ]
 
 })
 export class RouterStoreModule {

@@ -4,11 +4,11 @@ import {Directive, ElementRef, EventEmitter, HostListener, NgModule, Output} fro
   selector: '[clickOutside]'
 })
 export class ClickOutsideDirective {
-  constructor(private el: ElementRef) {
-  }
-
   @Output()
   public clickOutside = new EventEmitter<MouseEvent>();
+
+  constructor(private el: ElementRef) {
+  }
 
   @HostListener('document:click', ['$event', '$event.target'])
   public onClick(event: MouseEvent, targetElement: HTMLElement): void {

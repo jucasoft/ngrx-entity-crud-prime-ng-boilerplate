@@ -37,7 +37,7 @@ body .layout-container .layout-menu .ui-menu {
 .layout-progressBar {
   position: static !important;
   position: absolute !important;
-  top:0;
+  top: 0;
   left: 0;
   right: 0;
   height: 5px;

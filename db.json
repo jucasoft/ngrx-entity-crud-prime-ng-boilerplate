@@ -1,0 +1,62 @@
+{
+  "coin": [
+    {
+      "id": 1,
+      "value": "10",
+      "name": "xxxx",
+      "description": "xxxx"
+    },
+    {
+      "id": 2,
+      "value": "20",
+      "name": "xxxx",
+      "description": "xxxx"
+    },
+    {
+      "id": 3,
+      "value": "30",
+      "name": "xxxx",
+      "description": "xxxx"
+    }
+  ],
+  "book": [
+    {
+      "id": 1,
+      "value": "10",
+      "name": "xxxx",
+      "description": "xxxx"
+    },
+    {
+      "id": 2,
+      "value": "20",
+      "name": "xxxx",
+      "description": "xxxx"
+    },
+    {
+      "id": 3,
+      "value": "30",
+      "name": "xxxx",
+      "description": "xxxx"
+    }
+  ],
+  "home": [
+    {
+      "id": 1,
+      "value": "10",
+      "name": "xxxx",
+      "description": "xxxx"
+    },
+    {
+      "id": 2,
+      "value": "20",
+      "name": "xxxx",
+      "description": "xxxx"
+    },
+    {
+      "id": 3,
+      "value": "30",
+      "name": "xxxx",
+      "description": "xxxx"
+    }
+  ]
+}

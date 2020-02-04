@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   }
 
   onClickOutside($event, open, elements) {
-    console.log('AppComponent.onClickOutside(arguments)');
     if (open && elements.offsetLeft === 0) {
       this.store$.dispatch(SlideMenuStoreActions.Open({open: !open}));
     }

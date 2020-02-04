@@ -1,50 +1,65 @@
 import {Injectable} from '@angular/core';
-import {Actions, Effect, ofType} from '@ngrx/effects';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {Store} from '@ngrx/store';
-import {filter, switchMap, tap} from 'rxjs/operators';
+import {filter, map, tap} from 'rxjs/operators';
 import * as actions from './actions';
-import {RouterGoPerformed} from './actions';
-import {ActivationEnd, Router} from '@angular/router';
+import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
 import {Location} from '@angular/common';
 
 @Injectable()
 export class RouterEffects {
-  @Effect()
-  navigate$ = this.actions$.pipe(
-    ofType(actions.RouterGo),
-    switchMap(({path, queryParams, extras}) => {
-      this.router.navigate(path, {queryParams, ...extras});
-      return [RouterGoPerformed({path, queryParams, extras})];
-    })
+
+  navigate$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.RouterGo),
+      tap(({path, extras}) => this.router.navigate(path, extras)),
+      map(({extras, data}) => {
+        console.log('RouterEffects.()');
+        return actions.RouterGoPerformed({primary: data, extras});
+      })
+    )
   );
-  @Effect({dispatch: false})
-  navigateBack$ = this.actions$.pipe(
-    ofType(actions.RouterBack),
-    tap(() => this.location.back())
+
+  navigatePopUp$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.RouterGoPopUp),
+      tap(({path, extras}) => this.router.navigate(path, extras)),
+      map(({extras, data}) => {
+          console.log('RouterEffects.()');
+          return actions.RouterGoPopUpPerformed({popUp: data, extras});
+        }
+      )
+    )
   );
-  @Effect({dispatch: false})
-  navigateForward$ = this.actions$.pipe(
-    ofType(actions.RouterForward),
-    tap(() => this.location.forward())
+
+  navigateBack$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(actions.RouterBack),
+        tap(() => this.location.back())
+      ),
+    {dispatch: false}
   );
 
   constructor(
     private actions$: Actions,
     private router: Router,
     private location: Location,
+    private route: ActivatedRoute,
     private store: Store<any>
   ) {
-    // this.listenToRouter();
+    this.listenToRouter();
   }
 
   private listenToRouter() {
     this.router.events.pipe(
-      filter(event => event instanceof ActivationEnd)
-    ).subscribe((event: ActivationEnd) =>
-      this.store.dispatch(actions.RouteChange({
-        params: {...event.snapshot.params},
-        path: event.snapshot.routeConfig.path
-      }))
-    );
+      // navigationTrigger === 'popstate' corrisponde alle azioni per navigare nella history
+      // non è possibile distinguere la pressione del tasto back da forward
+      // nel reducer cancello eventuali stati futuri, impedendo la possibilità di premere su forward
+      // in questo modonavigationTrigger === 'popstate' corrisponde alla pressione del tasto back.
+      filter(event => (event as NavigationStart).navigationTrigger === 'popstate'),
+      tap(event => {
+        this.store.dispatch(actions.RouterPopState());
+      })
+    ).subscribe();
   }
 }
