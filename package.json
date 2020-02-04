@@ -31,7 +31,7 @@
     "deepmerge": "^4.2.2",
     "express": "^4.17.1",
     "json-server": "^0.15.1",
-    "ngrx-entity-crud": "^0.5.58",
+    "ngrx-entity-crud": "^0.5.60",
     "path": "^0.12.7",
     "primeflex": "^1.0.0",
     "primeicons": "^1.0.0",
