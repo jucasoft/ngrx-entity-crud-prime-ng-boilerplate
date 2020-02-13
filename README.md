@@ -1,6 +1,3 @@
-# This repository is an older version
-# [Click here for the latest version](https://github.com/jucasoft/ngrx-entity-crud-prime-ng-boilerplate)
-
 # ngrx-entity-crud-prime-ng-boilerplate
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
