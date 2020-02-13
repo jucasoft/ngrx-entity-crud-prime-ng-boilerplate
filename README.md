@@ -1,3 +1,6 @@
+# This repository is an older version
+# [Click here for the latest version](https://github.com/jucasoft/ngrx-entity-crud-prime-ng-boilerplate)
+
 # ngrx-entity-crud-prime-ng-boilerplate
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
@@ -26,5 +29,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-
-curl 'http://localhost:3000/coin' -X PUT -H 'Accept: application/json, text/plain, */*' -H 'Referer: http://localhost:4200/coin/(main//popUp:edit)' -H 'Origin: http://localhost:4200' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36' -H 'Content-Type: application/json' --data-binary '{"id":1,"value":"12","name":"xxxx","description":"xxxx"}' --compressed
