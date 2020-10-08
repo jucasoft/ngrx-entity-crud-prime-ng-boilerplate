@@ -9,16 +9,6 @@ ng-select.ng-invalid.ng-touched.ng-error .ng-select-container {
   border-left: #dc3545 solid 5px;
 }
 
-app-virtual-keyboard.ng-invalid.ng-touched.ng-warn input {
-  border-color: #ffc107;
-  border-left: #ffc107 solid 5px;
-}
-
-app-virtual-keyboard.ng-invalid.ng-touched.ng-error input {
-  border-color: #dc3545;
-  border-left: #dc3545 solid 5px;
-}
-
 small.ng-untouched {
   display: none !important;
 }

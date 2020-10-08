@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
 
@@ -16,17 +16,17 @@ export class AppComponent implements OnInit {
   open$: Observable<boolean>;
 
   @HostListener('document:keydown.escape', ['$event'])
-  onMouseup(event: KeyboardEvent) {
+  onMouseup(event: KeyboardEvent): void {
     // Metodo invocato alla pressione di ESC, utilizzato per la chiusura di tutte le popUp o i toast.
   }
 
-  onClickOutside($event, open, elements) {
+  onClickOutside($event, open, elements): void {
     if (open && elements.offsetLeft === 0) {
       this.store$.dispatch(SlideMenuStoreActions.Open({open: !open}));
     }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.open$ = this.store$.select(SlideMenuStoreSelectors.selectOpen);
   }
 

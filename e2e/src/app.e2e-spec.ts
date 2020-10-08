@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to ngrx-entity-crud-prime-ng-boilerplate!');
+    expect(page.getTitleText()).toEqual('ngrx-entity-crud-prime-ng-boilerplate app is running!');
   });
 
   afterEach(async () => {

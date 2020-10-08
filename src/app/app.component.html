@@ -1,25 +1,22 @@
-<div>
-  <app-progress class="layout-progressBar"></app-progress>
-  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
-  <router-outlet name="popUp"></router-outlet>
-  <div *ngLet="(open$|async) as open" class="layout-container">
-    <div class="layout-menu" [ngClass]="open ? 'layout-menu-inactive':''"
-         (clickOutside)="onClickOutside($event,open, layoutMain)">
-      <app-slide-menu></app-slide-menu>
+<app-progress class="layout-progressBar"></app-progress>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<router-outlet name="popUp"></router-outlet>
+<div *ngLet="(open$|async) as open" class="layout-container">
+  <div class="layout-menu" [ngClass]="open ? 'layout-menu-inactive':''"
+       (clickOutside)="onClickOutside($event,open, layoutMain)">
+    <app-slide-menu></app-slide-menu>
+  </div>
+  <div class="layout-header" [ngClass]="open?'layout-main-menu-opened':''">
+    <app-header></app-header>
+  </div>
+  <div #layoutMain class="layout-main" [ngClass]="open?'layout-main-menu-opened':''">
+    <div class="p-shadow-1 p-p-2 p-m-2">
+      <app-breadcrumb></app-breadcrumb>
     </div>
-    <div class="layout-header" [ngClass]="open?'layout-main-menu-opened':''">
-      <app-header></app-header>
+    <div class="p-shadow-1 p-p-2 p-m-2">
+      <router-outlet></router-outlet>
     </div>
-    <div #layoutMain class="layout-main" [ngClass]="open?'layout-main-menu-opened':''">
-      <div class="p-1">
-        <p-card>
-          <app-breadcrumb></app-breadcrumb>
-        </p-card>
-      </div>
-      <div class="p-1">
-        <router-outlet></router-outlet>
-      </div>
-      <app-footer></app-footer>
-    </div>
+    <app-footer></app-footer>
   </div>
 </div>
+
