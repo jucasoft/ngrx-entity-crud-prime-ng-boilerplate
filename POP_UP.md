@@ -50,7 +50,7 @@ Di seguito una configurazione di rotta per l'apertura di una popUP.
           (onHide)="onClose()">
           
         <p-header>
-            <a (click)="onClose()" role="button" tabindex="0" class="ng-tns-c11-8 ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all ng-star-inserted" ><span class="pi pi-times"></span></a>                
+            <a (click)="onClose()" role="button" tabindex="0" class="ng-tns-c11-8 ui-dialog-titlebar-icon ui-dialog-titlebar-close ng-star-inserted" ><span class="pi pi-times"></span></a>                
         </p-header>
         ...
         ...
