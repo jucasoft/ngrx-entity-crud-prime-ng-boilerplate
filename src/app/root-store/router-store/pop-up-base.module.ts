@@ -2,7 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
 import {PipesModule} from '@core/pipe/pipes.module';
-import {DialogModule, InputTextModule} from 'primeng/primeng';
+import {DialogModule} from 'primeng/dialog';
+import {InputTextModule} from 'primeng/inputtext';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
