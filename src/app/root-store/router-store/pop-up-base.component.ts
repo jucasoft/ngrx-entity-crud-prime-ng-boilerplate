@@ -71,7 +71,7 @@ export class PopUpBaseComponent<T> implements OnInit, OnDestroy {
   }
 
   cancel(): void {
-    this.store$.dispatch(closePopUpAction(this.route));
+    this.store$.dispatch(closePopUpAction);
   }
 }
 
@@ -80,4 +80,4 @@ export class PopUpData<T> {
   props: Partial<{ title: string, route: string, confirmMessage: string }>;
 }
 
-export const closePopUpAction = (route: string) => RouterStoreActions.RouterBack();
+export const closePopUpAction = RouterStoreActions.RouterBack();
