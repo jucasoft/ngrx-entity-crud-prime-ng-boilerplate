@@ -1,3 +1,24 @@
 {
-
+  "coin": [
+    {
+      "id": 1,
+      "nome": "luca"
+    },
+    {
+      "id": 2,
+      "nome": "luca"
+    },
+    {
+      "id": 3,
+      "nome": "luca"
+    },
+    {
+      "id": 4,
+      "nome": "luca"
+    },
+    {
+      "id": 5,
+      "nome": "luca"
+    }
+  ]
 }
