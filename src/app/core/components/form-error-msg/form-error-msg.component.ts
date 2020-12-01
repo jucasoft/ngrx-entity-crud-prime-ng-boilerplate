@@ -4,7 +4,7 @@ import {FormControl} from '@angular/forms';
 @Component({
   selector: 'app-form-error-msg',
   template: `
-    <div><small class="p-invalid">{{fc.errors && fc.errors.error ? fc.errors.getMessage() : ''}}</small></div>
+    <div *ngIf="fc.invalid && fc.touched"><small class="p-invalid">{{fc.errors && fc.errors.error ? fc.errors.getMessage() : ''}}</small></div>
   `,
   styles: []
 })
