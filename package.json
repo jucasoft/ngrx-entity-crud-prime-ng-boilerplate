@@ -30,10 +30,10 @@
     "deepmerge": "^4.2.2",
     "express": "^4.17.1",
     "json-server": "^0.16.2",
-    "ngrx-entity-crud": "^11.2.4",
+    "ngrx-entity-crud": "^11.2.5",
     "primeflex": "^2.0.0",
     "primeicons": "^4.0.0",
-    "primeng": "^10.0.3",
+    "primeng": "^11.0.0",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
