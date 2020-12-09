@@ -1,7 +1,9 @@
 import {ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {RootStoreState, SlideMenuStoreActions} from '../../../root-store/';
+import {select, Store} from '@ngrx/store';
+import {RootStoreState, SlideMenuStoreActions, SlideMenuStoreSelectors} from '../../../root-store/';
 import {MenuItem} from 'primeng/api';
+import {Observable} from 'rxjs';
+import {menuItemsDecorator} from '@root-store/slide-menu-store/operators';
 
 @Component({
   selector: 'app-slide-menu',
@@ -9,7 +11,7 @@ import {MenuItem} from 'primeng/api';
     <div class="slide-header"><i class="fas fa-heart"></i> Menù</div>
     <!--    <p-panelMenu [model]="items" [style.width.%]="100"></p-panelMenu>-->
     <p-scrollPanel #scrollPanel [style]="{height: '100%'}">
-      <p-menu [model]="items" styleClass="slide-menu" [style.width.%]="100"></p-menu>
+      <p-menu [model]="items$ | async" styleClass="slide-menu" [style.width.%]="100"></p-menu>
     </p-scrollPanel>
   `,
   styles: [`
@@ -42,29 +44,17 @@ export class SlideMenuComponent implements OnInit, OnDestroy {
   constructor(private readonly store$: Store<RootStoreState.State>) {
   }
 
-  items: MenuItem[];
+  items$: Observable<MenuItem[]>;
 
   ngOnDestroy(): void {
   }
 
   // todo: completare profilazione dei pulsanti.
   ngOnInit(): void {
-    this.items = [
-      {
-        label: 'File (demonstrative)',
-        items: [
-          {label: 'New  (demonstrative)', icon: 'pi pi-fw pi-plus'},
-          {label: 'Download  (demonstrative)', icon: 'pi pi-fw pi-download'}
-        ]
-      },
-      {
-        label: 'Edit (demonstrative)',
-        items: [
-          {label: 'Add User (demonstrative)', icon: 'pi pi-fw pi-user-plus'},
-          {label: 'Remove User (demonstrative)', icon: 'pi pi-fw pi-user-minus'}
-        ]
-      }
-    ];
+    this.items$ = this.store$.pipe(
+      select(SlideMenuStoreSelectors.selectItems),
+      menuItemsDecorator(this.store$)
+    );
 
     this.store$.dispatch(SlideMenuStoreActions.Select({
       item: {
