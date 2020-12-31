@@ -1,29 +1,28 @@
 {
-  "coin": [
+  "user": [
     {
-      "id": 1,
-      "name": "name",
-      "value": "value"
-    },
+      "id": "1",
+      "firstName": "Johnaaa",
+      "lastName": "Smith",
+      "companyId": "1",
+      "company": {}
+    }
+  ],
+  "company": [
     {
-      "id": 2,
-      "name": "name",
-      "value": "value"
-    },
+      "id": "1",
+      "name": "Magic",
+      "adminId": "2",
+      "addressId": "1",
+      "address": {}
+    }
+  ],
+  "address": [
     {
-      "id": 3,
-      "name": "name",
-      "value": "value"
-    },
-    {
-      "id": 4,
-      "name": "name",
-      "value": "value"
-    },
-    {
-      "id": 5,
-      "name": "name",
-      "value": "value"
+      "id": "1",
+      "street": "Main st.",
+      "city": "Town",
+      "country": "Land"
     }
   ]
 }

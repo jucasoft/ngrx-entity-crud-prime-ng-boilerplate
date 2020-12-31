@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {UserStoreActions, RootStoreState} from '@root-store/index';
+import {AddressStoreActions, CompanyStoreActions, RootStoreState, UserStoreActions, UserStoreSelectors} from '@root-store/index';
 import {Actions} from 'ngrx-entity-crud';
 import {User} from '@models/vo/user';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-user-main',
@@ -11,11 +12,20 @@ import {User} from '@models/vo/user';
 })
 export class UserMainComponent implements OnInit {
 
+  user$: Observable<any>;
+  users$: Observable<any>;
+
   constructor(private readonly store$: Store<RootStoreState.State>) {
   }
 
   actions: Actions<User> = UserStoreActions.actions;
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.store$.dispatch(UserStoreActions.SearchRequest({queryParams: {}}));
+    this.store$.dispatch(AddressStoreActions.SearchRequest({queryParams: {}}));
+    this.store$.dispatch(CompanyStoreActions.SearchRequest({queryParams: {}}));
+
+    this.user$ = this.store$.select(UserStoreSelectors.selectUser, '1');
+    this.users$ = this.store$.select(UserStoreSelectors.selectUsers, ['1']);
   }
 }
