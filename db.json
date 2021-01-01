@@ -1,20 +1,796 @@
 {
   "user": [
     {
-      "id": "1",
-      "firstName": "Johnaaa",
-      "lastName": "Smith",
-      "companyId": "1",
-      "company": {}
+      "id": 1,
+      "firstName": "Delaney",
+      "lastName": "Barrs",
+      "company": "company",
+      "companyId": 80
+    },
+    {
+      "id": 2,
+      "firstName": "Anna",
+      "lastName": "Tewnion",
+      "company": "company",
+      "companyId": 26
+    },
+    {
+      "id": 3,
+      "firstName": "Marsh",
+      "lastName": "Forsey",
+      "company": "company",
+      "companyId": 61
+    },
+    {
+      "id": 4,
+      "firstName": "Linette",
+      "lastName": "Layhe",
+      "company": "company",
+      "companyId": 75
+    },
+    {
+      "id": 5,
+      "firstName": "Orrin",
+      "lastName": "Guly",
+      "company": "company",
+      "companyId": 16
+    },
+    {
+      "id": 6,
+      "firstName": "Joanie",
+      "lastName": "Prendergrast",
+      "company": "company",
+      "companyId": 94
+    },
+    {
+      "id": 7,
+      "firstName": "Pincas",
+      "lastName": "Huxton",
+      "company": "company",
+      "companyId": 100
+    },
+    {
+      "id": 8,
+      "firstName": "Anderson",
+      "lastName": "Kinmond",
+      "company": "company",
+      "companyId": 25
+    },
+    {
+      "id": 9,
+      "firstName": "Shandeigh",
+      "lastName": "Evens",
+      "company": "company",
+      "companyId": 9
+    },
+    {
+      "id": 10,
+      "firstName": "Veriee",
+      "lastName": "Eggleton",
+      "company": "company",
+      "companyId": 48
+    },
+    {
+      "id": 11,
+      "firstName": "Briant",
+      "lastName": "Mathe",
+      "company": "company",
+      "companyId": 11
+    },
+    {
+      "id": 12,
+      "firstName": "Celestyna",
+      "lastName": "Olenichev",
+      "company": "company",
+      "companyId": 6
+    },
+    {
+      "id": 13,
+      "firstName": "Alisha",
+      "lastName": "Tocknell",
+      "company": "company",
+      "companyId": 12
+    },
+    {
+      "id": 14,
+      "firstName": "Rutger",
+      "lastName": "Ilyukhov",
+      "company": "company",
+      "companyId": 79
+    },
+    {
+      "id": 15,
+      "firstName": "Laetitia",
+      "lastName": "Bemment",
+      "company": "company",
+      "companyId": 97
+    },
+    {
+      "id": 16,
+      "firstName": "Lorrie",
+      "lastName": "Dummigan",
+      "company": "company",
+      "companyId": 25
+    },
+    {
+      "id": 17,
+      "firstName": "Zelig",
+      "lastName": "Zealander",
+      "company": "company",
+      "companyId": 19
+    },
+    {
+      "id": 18,
+      "firstName": "Julita",
+      "lastName": "Balfour",
+      "company": "company",
+      "companyId": 10
+    },
+    {
+      "id": 19,
+      "firstName": "Somerset",
+      "lastName": "Maffia",
+      "company": "company",
+      "companyId": 37
+    },
+    {
+      "id": 20,
+      "firstName": "Fenelia",
+      "lastName": "Burrells",
+      "company": "company",
+      "companyId": 36
+    },
+    {
+      "id": 21,
+      "firstName": "Geralda",
+      "lastName": "Hailes",
+      "company": "company",
+      "companyId": 87
+    },
+    {
+      "id": 22,
+      "firstName": "Gertrudis",
+      "lastName": "Gillopp",
+      "company": "company",
+      "companyId": 22
+    },
+    {
+      "id": 23,
+      "firstName": "Rosamond",
+      "lastName": "Bartholomieu",
+      "company": "company",
+      "companyId": 75
+    },
+    {
+      "id": 24,
+      "firstName": "Alisha",
+      "lastName": "Fromont",
+      "company": "company",
+      "companyId": 41
+    },
+    {
+      "id": 25,
+      "firstName": "Arleta",
+      "lastName": "Bunhill",
+      "company": "company",
+      "companyId": 74
+    },
+    {
+      "id": 26,
+      "firstName": "Eamon",
+      "lastName": "Lowcock",
+      "company": "company",
+      "companyId": 56
+    },
+    {
+      "id": 27,
+      "firstName": "Javier",
+      "lastName": "Farryann",
+      "company": "company",
+      "companyId": 97
+    },
+    {
+      "id": 28,
+      "firstName": "Melvyn",
+      "lastName": "Henric",
+      "company": "company",
+      "companyId": 64
+    },
+    {
+      "id": 29,
+      "firstName": "Georgeta",
+      "lastName": "Egell",
+      "company": "company",
+      "companyId": 49
+    },
+    {
+      "id": 30,
+      "firstName": "Hewe",
+      "lastName": "Bradbrook",
+      "company": "company",
+      "companyId": 72
+    },
+    {
+      "id": 31,
+      "firstName": "Xena",
+      "lastName": "Warde",
+      "company": "company",
+      "companyId": 7
+    },
+    {
+      "id": 32,
+      "firstName": "Ginnifer",
+      "lastName": "McCarter",
+      "company": "company",
+      "companyId": 46
+    },
+    {
+      "id": 33,
+      "firstName": "Serene",
+      "lastName": "Blofeld",
+      "company": "company",
+      "companyId": 75
+    },
+    {
+      "id": 34,
+      "firstName": "Fabio",
+      "lastName": "Texton",
+      "company": "company",
+      "companyId": 20
+    },
+    {
+      "id": 35,
+      "firstName": "Con",
+      "lastName": "Fogel",
+      "company": "company",
+      "companyId": 14
+    },
+    {
+      "id": 36,
+      "firstName": "Gerrie",
+      "lastName": "Chamberlin",
+      "company": "company",
+      "companyId": 93
+    },
+    {
+      "id": 37,
+      "firstName": "Dominik",
+      "lastName": "Maggiore",
+      "company": "company",
+      "companyId": 92
+    },
+    {
+      "id": 38,
+      "firstName": "Bradan",
+      "lastName": "Khalid",
+      "company": "company",
+      "companyId": 70
+    },
+    {
+      "id": 39,
+      "firstName": "Sally",
+      "lastName": "Bamford",
+      "company": "company",
+      "companyId": 24
+    },
+    {
+      "id": 40,
+      "firstName": "Giorgia",
+      "lastName": "Menault",
+      "company": "company",
+      "companyId": 14
+    },
+    {
+      "id": 41,
+      "firstName": "Milka",
+      "lastName": "Beckhurst",
+      "company": "company",
+      "companyId": 43
+    },
+    {
+      "id": 42,
+      "firstName": "Maren",
+      "lastName": "Arter",
+      "company": "company",
+      "companyId": 28
+    },
+    {
+      "id": 43,
+      "firstName": "Ashil",
+      "lastName": "Marling",
+      "company": "company",
+      "companyId": 16
+    },
+    {
+      "id": 44,
+      "firstName": "Bryana",
+      "lastName": "Bottomer",
+      "company": "company",
+      "companyId": 82
+    },
+    {
+      "id": 45,
+      "firstName": "Queenie",
+      "lastName": "Shea",
+      "company": "company",
+      "companyId": 33
+    },
+    {
+      "id": 46,
+      "firstName": "Eartha",
+      "lastName": "Element",
+      "company": "company",
+      "companyId": 66
+    },
+    {
+      "id": 47,
+      "firstName": "Ryon",
+      "lastName": "McGenn",
+      "company": "company",
+      "companyId": 63
+    },
+    {
+      "id": 48,
+      "firstName": "Inger",
+      "lastName": "Beadell",
+      "company": "company",
+      "companyId": 5
+    },
+    {
+      "id": 49,
+      "firstName": "Ebeneser",
+      "lastName": "Bellchamber",
+      "company": "company",
+      "companyId": 49
+    },
+    {
+      "id": 50,
+      "firstName": "Corenda",
+      "lastName": "Kirstein",
+      "company": "company",
+      "companyId": 8
+    },
+    {
+      "id": 51,
+      "firstName": "Rodger",
+      "lastName": "Veschambre",
+      "company": "company",
+      "companyId": 88
+    },
+    {
+      "id": 52,
+      "firstName": "Geri",
+      "lastName": "Allanby",
+      "company": "company",
+      "companyId": 9
+    },
+    {
+      "id": 53,
+      "firstName": "Natalya",
+      "lastName": "Jaimez",
+      "company": "company",
+      "companyId": 70
+    },
+    {
+      "id": 54,
+      "firstName": "Antonia",
+      "lastName": "Jirik",
+      "company": "company",
+      "companyId": 46
+    },
+    {
+      "id": 55,
+      "firstName": "Eberhard",
+      "lastName": "Bucktrout",
+      "company": "company",
+      "companyId": 49
+    },
+    {
+      "id": 56,
+      "firstName": "Gerri",
+      "lastName": "Constantine",
+      "company": "company",
+      "companyId": 87
+    },
+    {
+      "id": 57,
+      "firstName": "Rosalind",
+      "lastName": "Heales",
+      "company": "company",
+      "companyId": 47
+    },
+    {
+      "id": 58,
+      "firstName": "Odetta",
+      "lastName": "Croxall",
+      "company": "company",
+      "companyId": 28
+    },
+    {
+      "id": 59,
+      "firstName": "Sissie",
+      "lastName": "Gianneschi",
+      "company": "company",
+      "companyId": 2
+    },
+    {
+      "id": 60,
+      "firstName": "Petronilla",
+      "lastName": "Hallatt",
+      "company": "company",
+      "companyId": 25
+    },
+    {
+      "id": 61,
+      "firstName": "Janka",
+      "lastName": "Hamson",
+      "company": "company",
+      "companyId": 20
+    },
+    {
+      "id": 62,
+      "firstName": "Marinna",
+      "lastName": "Godbert",
+      "company": "company",
+      "companyId": 53
+    },
+    {
+      "id": 63,
+      "firstName": "Barton",
+      "lastName": "Jarrett",
+      "company": "company",
+      "companyId": 63
+    },
+    {
+      "id": 64,
+      "firstName": "Torrance",
+      "lastName": "Howson",
+      "company": "company",
+      "companyId": 24
+    },
+    {
+      "id": 65,
+      "firstName": "Collette",
+      "lastName": "McPike",
+      "company": "company",
+      "companyId": 43
+    },
+    {
+      "id": 66,
+      "firstName": "Carola",
+      "lastName": "Ayrton",
+      "company": "company",
+      "companyId": 73
+    },
+    {
+      "id": 67,
+      "firstName": "Dmitri",
+      "lastName": "Critten",
+      "company": "company",
+      "companyId": 37
+    },
+    {
+      "id": 68,
+      "firstName": "Josepha",
+      "lastName": "Bold",
+      "company": "company",
+      "companyId": 1
+    },
+    {
+      "id": 69,
+      "firstName": "Marji",
+      "lastName": "Pietersma",
+      "company": "company",
+      "companyId": 30
+    },
+    {
+      "id": 70,
+      "firstName": "Vanya",
+      "lastName": "De Filippo",
+      "company": "company",
+      "companyId": 62
+    },
+    {
+      "id": 71,
+      "firstName": "Grantham",
+      "lastName": "Sahlstrom",
+      "company": "company",
+      "companyId": 93
+    },
+    {
+      "id": 72,
+      "firstName": "Celisse",
+      "lastName": "Dowsett",
+      "company": "company",
+      "companyId": 9
+    },
+    {
+      "id": 73,
+      "firstName": "Donavon",
+      "lastName": "Geratt",
+      "company": "company",
+      "companyId": 73
+    },
+    {
+      "id": 74,
+      "firstName": "Pincas",
+      "lastName": "Oland",
+      "company": "company",
+      "companyId": 6
+    },
+    {
+      "id": 75,
+      "firstName": "Bearnard",
+      "lastName": "Kensington",
+      "company": "company",
+      "companyId": 26
+    },
+    {
+      "id": 76,
+      "firstName": "Merrili",
+      "lastName": "Spurden",
+      "company": "company",
+      "companyId": 43
+    },
+    {
+      "id": 77,
+      "firstName": "Roxie",
+      "lastName": "Borgesio",
+      "company": "company",
+      "companyId": 70
+    },
+    {
+      "id": 78,
+      "firstName": "Alfreda",
+      "lastName": "Pender",
+      "company": "company",
+      "companyId": 32
+    },
+    {
+      "id": 79,
+      "firstName": "Willa",
+      "lastName": "Tembridge",
+      "company": "company",
+      "companyId": 11
+    },
+    {
+      "id": 80,
+      "firstName": "Benedetto",
+      "lastName": "Tschiersch",
+      "company": "company",
+      "companyId": 69
+    },
+    {
+      "id": 81,
+      "firstName": "Laurice",
+      "lastName": "Iban",
+      "company": "company",
+      "companyId": 73
+    },
+    {
+      "id": 82,
+      "firstName": "Dene",
+      "lastName": "Bogey",
+      "company": "company",
+      "companyId": 78
+    },
+    {
+      "id": 83,
+      "firstName": "Alva",
+      "lastName": "Mitton",
+      "company": "company",
+      "companyId": null
+    },
+    {
+      "id": 84,
+      "firstName": "Gilemette",
+      "lastName": "Greated",
+      "company": "company",
+      "companyId": 31
+    },
+    {
+      "id": 85,
+      "firstName": "Dianna",
+      "lastName": "Seson",
+      "company": "company",
+      "companyId": 37
+    },
+    {
+      "id": 86,
+      "firstName": "Wayland",
+      "lastName": "Bear",
+      "company": "company",
+      "companyId": 52
+    },
+    {
+      "id": 87,
+      "firstName": "Trescha",
+      "lastName": "Stile",
+      "company": "company",
+      "companyId": 74
+    },
+    {
+      "id": 88,
+      "firstName": "Carter",
+      "lastName": "Tucker",
+      "company": "company",
+      "companyId": 68
+    },
+    {
+      "id": 89,
+      "firstName": "Krishna",
+      "lastName": "MacCleod",
+      "company": "company",
+      "companyId": 97
+    },
+    {
+      "id": 90,
+      "firstName": "Erny",
+      "lastName": "Voce",
+      "company": "company",
+      "companyId": 52
+    },
+    {
+      "id": 91,
+      "firstName": "Dwain",
+      "lastName": "Wadworth",
+      "company": "company",
+      "companyId": 91
+    },
+    {
+      "id": 92,
+      "firstName": "Wylma",
+      "lastName": "Muldrew",
+      "company": "company",
+      "companyId": 52
+    },
+    {
+      "id": 93,
+      "firstName": "Carlos",
+      "lastName": "Ram",
+      "company": "company",
+      "companyId": 90
+    },
+    {
+      "id": 94,
+      "firstName": "Reuven",
+      "lastName": "Kent",
+      "company": "company",
+      "companyId": 10
+    },
+    {
+      "id": 95,
+      "firstName": "Aimil",
+      "lastName": "Lorenzo",
+      "company": "company",
+      "companyId": 46
+    },
+    {
+      "id": 96,
+      "firstName": "Clarabelle",
+      "lastName": "Krysiak",
+      "company": "company",
+      "companyId": 57
+    },
+    {
+      "id": 97,
+      "firstName": "Wilone",
+      "lastName": "Hugk",
+      "company": "company",
+      "companyId": 32
+    },
+    {
+      "id": 98,
+      "firstName": "Marshall",
+      "lastName": "Geaney",
+      "company": "company",
+      "companyId": 29
+    },
+    {
+      "id": 99,
+      "firstName": "Theadora",
+      "lastName": "Robbe",
+      "company": "company",
+      "companyId": 12
+    },
+    {
+      "id": 100,
+      "firstName": "Orelee",
+      "lastName": "Leppard",
+      "company": "company",
+      "companyId": 88
     }
   ],
   "company": [
     {
-      "id": "1",
-      "name": "Magic",
-      "adminId": "2",
-      "addressId": "1",
-      "address": {}
+      "id": 1,
+      "name": "Yambee",
+      "staff": null,
+      "admin": null,
+      "adminId": 3,
+      "address": null,
+      "addressId": 7
+    },
+    {
+      "id": 2,
+      "name": "Dazzlesphere",
+      "staff": null,
+      "admin": null,
+      "adminId": 2,
+      "address": null,
+      "addressId": 5
+    },
+    {
+      "id": 3,
+      "name": "Fivespan",
+      "staff": null,
+      "admin": null,
+      "adminId": 10,
+      "address": null,
+      "addressId": 9
+    },
+    {
+      "id": 4,
+      "name": "Blognation",
+      "staff": null,
+      "admin": null,
+      "adminId": 3,
+      "address": null,
+      "addressId": 5
+    },
+    {
+      "id": 5,
+      "name": "Voonyx",
+      "staff": null,
+      "admin": null,
+      "adminId": 6,
+      "address": null,
+      "addressId": 3
+    },
+    {
+      "id": 6,
+      "name": "Lazz",
+      "staff": null,
+      "admin": null,
+      "adminId": 6,
+      "address": null,
+      "addressId": 4
+    },
+    {
+      "id": 7,
+      "name": "Eamia",
+      "staff": null,
+      "admin": null,
+      "adminId": 6,
+      "address": null,
+      "addressId": 8
+    },
+    {
+      "id": 8,
+      "name": "Kayveo",
+      "staff": null,
+      "admin": null,
+      "adminId": 2,
+      "address": null,
+      "addressId": 4
+    },
+    {
+      "id": 9,
+      "name": "Eadel",
+      "staff": null,
+      "admin": null,
+      "adminId": 7,
+      "address": null,
+      "addressId": 8
+    },
+    {
+      "id": 10,
+      "name": "Mycat",
+      "staff": null,
+      "admin": null,
+      "adminId": 2,
+      "address": null,
+      "addressId": 7
     }
   ],
   "address": [
