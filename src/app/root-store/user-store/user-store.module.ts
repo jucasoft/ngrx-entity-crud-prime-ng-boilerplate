@@ -10,17 +10,17 @@ import {Names} from './names';
 export const INJECTION_TOKEN = new InjectionToken<ActionReducer<State>>(`${Names.NAME}-store Reducers`);
 
 @NgModule({
-	imports: [
-		CommonModule,
-		StoreModule.forFeature(Names.NAME, INJECTION_TOKEN),
-		EffectsModule.forFeature([UserStoreEffects]),
-	],
-	declarations: [],
-	providers: [UserStoreEffects,
-		{
-			provide: INJECTION_TOKEN,
-			useFactory: (): ActionReducer<State> => featureReducer
-		}]
+  imports: [
+    CommonModule,
+    StoreModule.forFeature(Names.NAME, INJECTION_TOKEN),
+    EffectsModule.forFeature([UserStoreEffects]),
+  ],
+  declarations: [],
+  providers: [UserStoreEffects,
+    {
+      provide: INJECTION_TOKEN,
+      useFactory: (): ActionReducer<State> => featureReducer
+    }]
 })
 export class UserStoreModule {
 }

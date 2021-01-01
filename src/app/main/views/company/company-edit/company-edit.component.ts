@@ -1,8 +1,10 @@
-import {Component} from '@angular/core';
-import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
+import {Component, OnInit} from '@angular/core';
+import {PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
 import {Company} from '@models/vo/company';
-import {FormGroup} from '@angular/forms';
-import {CompanyStoreActions} from '@root-store/company-store';
+import {Observable} from 'rxjs';
+import {User} from '@models/vo/user';
+import {select} from '@ngrx/store';
+import {UserStoreActions, UserStoreSelectors} from '@root-store/user-store';
 
 
 @Component({
@@ -10,41 +12,20 @@ import {CompanyStoreActions} from '@root-store/company-store';
   templateUrl: './company-edit.component.html',
   styles: [``]
 })
-export class CompanyEditComponent extends PopUpBaseComponent<Company> {
+export class CompanyEditComponent extends PopUpBaseComponent<Company> implements OnInit {
 
-  form: FormGroup;
-  keys: string[];
+  users$: Observable<User[]>;
+
+  ngOnInit(): void {
+    this.users$ = this.store$.pipe(
+      select(UserStoreSelectors.selectAll)
+    );
+    super.ngOnInit();
+  }
 
   setItemPerform(value: Company): void {
-    const group = this.fb.group({});
-    this.keys = Object.keys(value);
-    this.keys.forEach(key => group.addControl(key, this.fb.control({value: value[key], disabled: key === 'id'})));
-    this.form = group;
+    const companyId = value.id;
+    this.store$.dispatch(UserStoreActions.SearchRequest({queryParams: {companyId}}));
   }
 
-  acceptPerform(item: Company): void {
-    if (item.id) {
-      this.store$.dispatch(CompanyStoreActions.EditRequest({
-        item, onResult: [
-          // azione che verrà invocata al result della chiamata all'interno dell'effect.
-          // chiude la popUP.
-          // closePopUpAction: metodo per la creazione dell'azione di chiusura della popUP
-          closePopUpAction
-        ]
-      }));
-    } else {
-      this.store$.dispatch(CompanyStoreActions.CreateRequest({
-        item, onResult: [
-          // azione che verrà invocata al result della chiamata all'interno dell'effect.
-          // chiude la popUP.
-          // closePopUpAction: metodo per la creazione dell'azione di chiusura della popUP
-          closePopUpAction
-        ]
-      }));
-    }
-  }
-
-  // cancel(): void {
-  //   this.store$.dispatch(closePopUpAction(this.route));
-  // }
 }

@@ -1,24 +1,18 @@
 import {actions} from './actions';
 import {adapter, initialState, State} from './state';
 import {createReducer, on} from '@ngrx/store';
-import {createCrudOns} from 'ngrx-entity-crud';
-import {ICriteria} from 'ngrx-entity-crud';
+import {createCrudOns, ICriteria} from 'ngrx-entity-crud';
 
 // export const featureReducer = adapter.createCrudReducer(initialState, actions);
 
 const predicate = (criteria: ICriteria) => (value) => {
   const {queryParams} = criteria;
-
-  return true;
+  return value.companyId === queryParams.companyId;
 };
 
 const customSearchSuccessOn = on(actions.SearchSuccess, (state: State, {type, items, request}) => {
-  console.log('createCrudOns()');
-
-  // cancello gli elementi gia` presenti in base al tipo di ricerca effettuata.
-  // recupero il Criteria utilizzato per la chiamata
-
-  const newState = adapter.removeMany(predicate(request),
+  const newState = adapter.removeMany(
+    predicate(request),
     {
       ...state,
       isLoaded: true,
@@ -27,7 +21,7 @@ const customSearchSuccessOn = on(actions.SearchSuccess, (state: State, {type, it
     }
   );
 
-  return adapter.upsertMany(
+  return adapter.addMany(
     items, newState
   );
 });
@@ -60,9 +54,9 @@ const {
 } = createCrudOns(adapter, initialState, actions);
 
 export const featureReducer = createReducer<State>(initialState,
-  responseOn,
+  // responseOn,
   resetResponsesOn,
-  searchRequestOn,
+  // searchRequestOn,
   deleteRequestOn,
   editRequestOn,
   createRequestOn,
