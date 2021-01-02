@@ -1,9 +1,5 @@
-import {createFeatureSelector, MemoizedSelector} from '@ngrx/store';
+import { adapter, selectAddressState } from './state';
 
-import {adapter, State} from './state';
-import {Names} from './names';
-
-export const selectState: MemoizedSelector<object, State> = createFeatureSelector<State>(Names.NAME);
 export const {
     selectIds,
     selectEntities,
@@ -17,4 +13,4 @@ export const {
     selectIsLoaded,
     selectFilters,
     selectFilteredItems
-} = adapter.getCrudSelectors(selectState);
+} = adapter.getCrudSelectors(selectAddressState);
