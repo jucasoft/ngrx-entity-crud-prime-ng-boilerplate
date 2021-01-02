@@ -9,7 +9,9 @@
           [closable]="false"
           (onHide)="cancel()">
 
-  <pre>{{users$|async|json}}</pre>
+  <pre>Total: {{total$|async|json}}</pre>
+  <pre>Partial: {{(users$|async).length}}</pre>
+  <pre>users$: {{users$|async|json}}</pre>
   <ng-template pTemplate="footer">
     <button pButton type="button" label="Cancel" (click)="cancel()"></button>
   </ng-template>
