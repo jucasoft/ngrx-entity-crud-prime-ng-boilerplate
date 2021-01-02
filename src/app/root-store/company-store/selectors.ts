@@ -1,9 +1,8 @@
-import {createFeatureSelector, MemoizedSelector} from '@ngrx/store';
+import { selectUserState } from '@root-store/user-store/state';
+import { childrenEntities, rootEntity } from 'ngrx-entity-relationship';
 
-import {adapter, State} from './state';
-import {Names} from './names';
+import { adapter, selectCompanyState } from './state';
 
-export const selectState: MemoizedSelector<object, State> = createFeatureSelector<State>(Names.NAME);
 export const {
     selectIds,
     selectEntities,
@@ -17,13 +16,13 @@ export const {
     selectIsLoaded,
     selectFilters,
     selectFilteredItems
-} = adapter.getCrudSelectors(selectState);
+} = adapter.getCrudSelectors(selectCompanyState);
 
-// const companyWithEmployees = rootEntity(
-//   selectState,
-//   childEntity( // childEntity searches for suitable users based on companyId == company.id.
-//     UserStoreSelectors.selectState,
-//     'companyId',
-//     'staff',
-//   ),
-// );
+const companyWithEmployees = rootEntity(
+  selectCompanyState,
+  childrenEntities( // childrenEntities searches for suitable users based on companyId == company.id.
+    selectUserState,
+    'companyId',
+    'staff',
+  ),
+);
