@@ -7,6 +7,7 @@ import {PanelModule} from 'primeng/panel';
 import {CardModule} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
 import {RippleModule} from 'primeng/ripple';
+import {NgrxEntityCrudTestModule} from '@views/home/ngrx-entity-crud-test/ngrx-entity-crud-test.module';
 
 @NgModule({
   declarations: [HomeMainComponent],
@@ -18,7 +19,8 @@ import {RippleModule} from 'primeng/ripple';
     PanelModule,
     CardModule,
     ButtonModule,
-    RippleModule
+    RippleModule,
+    NgrxEntityCrudTestModule
   ],
   providers: [],
   entryComponents: []
