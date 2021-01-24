@@ -97,4 +97,5 @@ export class CoinListComponent implements OnInit {
     console.log('items', items);
     this.store$.dispatch(CoinStoreActions.SelectItems({items}));
   }
+
 }
