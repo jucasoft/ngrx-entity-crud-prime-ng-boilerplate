@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {CoinStoreActions, CoinStoreSelectors, RootStoreState} from '@root-store/index';
 import {Observable} from 'rxjs';
 import {Coin} from '@models/vo/coin';
@@ -19,14 +19,19 @@ export class CoinListComponent implements OnInit {
 
   collection$: Observable<Coin[]>;
   cols: any;
+  itemsSelected$: Observable<Coin[]>;
 
   constructor(private store$: Store<RootStoreState.State>,
               private confirmationService: ConfirmationService) {
     console.log('CoinListComponent.constructor()');
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.log('CoinListComponent.ngOnInit()');
+
+    this.itemsSelected$ = this.store$.pipe(
+      select(CoinStoreSelectors.selectItemsSelected)
+    );
 
     this.collection$ = this.store$.select(
       CoinStoreSelectors.selectAll
@@ -44,7 +49,7 @@ export class CoinListComponent implements OnInit {
 
   }
 
-  onEdit(item) {
+  onEdit(item): void {
     console.log('CoinListComponent.onEdit()');
 
     const data: PopUpData<Coin> = {
@@ -60,7 +65,7 @@ export class CoinListComponent implements OnInit {
 
   }
 
-  onCopy(value) {
+  onCopy(value): void {
     console.log('CoinListComponent.onCopy()');
 
     const item = {...{}, ...value, ...{id: null}};
@@ -76,7 +81,7 @@ export class CoinListComponent implements OnInit {
 
   }
 
-  onDelete(item) {
+  onDelete(item): void {
 
     this.confirmationService.confirm({
       message: 'Are you sure that you want to perform this action?',
@@ -87,4 +92,9 @@ export class CoinListComponent implements OnInit {
 
   }
 
+  onSelectionChange(items: Coin[]): void {
+    console.log('CoinListComponent.onSelectionChange()');
+    console.log('items', items);
+    this.store$.dispatch(CoinStoreActions.SelectItems({items}));
+  }
 }
