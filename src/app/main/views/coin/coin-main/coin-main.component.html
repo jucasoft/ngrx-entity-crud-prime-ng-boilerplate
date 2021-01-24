@@ -1,13 +1,11 @@
-<div class="p-grid">
-  <div class="p-col">
+<p-toolbar styleClass="p-mb-4">
+  <ng-template pTemplate="left">
     <app-search [actions]="actions"></app-search>
-  </div>
-  <div class="p-col p-text-right">
-    <app-button-new-coin class="float-right mr-2"></app-button-new-coin>
-  </div>
-</div>
-<div class="p-grid">
-  <div class="p-col">
-  <app-coin-list></app-coin-list>
-  </div>
-</div>
+  </ng-template>
+  <ng-template pTemplate="right">
+    <app-button-new-coin class="p-mr-2"></app-button-new-coin>
+    <app-button-delete-coin></app-button-delete-coin>
+  </ng-template>
+</p-toolbar>
+<app-coin-list></app-coin-list>
+

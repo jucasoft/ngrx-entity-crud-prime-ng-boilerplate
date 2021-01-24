@@ -16,6 +16,6 @@ export class CoinMainComponent implements OnInit {
 
   actions: Actions<Coin> = CoinStoreActions.actions;
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 }
