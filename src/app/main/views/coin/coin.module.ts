@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CoinEditComponent} from './coin-edit/coin-edit.component';
 import {CoinMainComponent} from './coin-main/coin-main.component';
@@ -13,13 +12,17 @@ import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {SearchModule} from '@components/search/search.module';
 import {PipesModule} from '@core/pipe/pipes.module';
+import {ButtonDeleteCoinComponent} from './components/button-delete-coin.component';
+import {NgLetModule} from '@core/directive/ng-let.directive';
+import {ToolbarModule} from 'primeng/toolbar';
 
 @NgModule({
   declarations: [
     CoinEditComponent,
     CoinMainComponent,
     CoinListComponent,
-    ButtonNewCoinComponent
+    ButtonNewCoinComponent,
+    ButtonDeleteCoinComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +34,9 @@ import {PipesModule} from '@core/pipe/pipes.module';
     ButtonModule,
     InputTextModule,
     PipesModule,
-    SearchModule
+    SearchModule,
+    NgLetModule,
+    ToolbarModule
   ],
   providers: [],
   entryComponents: []
