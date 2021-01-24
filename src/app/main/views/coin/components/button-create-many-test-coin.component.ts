@@ -5,17 +5,17 @@ import {CoinStoreActions, CoinStoreSelectors, RootStoreState} from '@root-store/
 import {Coin} from '@models/vo/coin';
 
 @Component({
-  selector: 'app-button-edit-many-test-coin',
+  selector: 'app-button-create-many-test-coin',
   template: `
     <button type="button" *ngLet="(itemsSelected$|async) as itemsSelected" pButton icon="pi pi-plus"
-            label="Edit many test" (click)="onEditMany(itemsSelected)"
+            label="Create many test" (click)="onCreateMany(itemsSelected)"
             [disabled]="!(itemsSelected.length > 0)"
             class="p-button-success"></button>
   `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ButtonEditManyTestCoinComponent implements OnInit {
+export class ButtonCreateManyTestCoinComponent implements OnInit {
 
   itemsSelected$: Observable<Coin[]>;
 
@@ -28,18 +28,19 @@ export class ButtonEditManyTestCoinComponent implements OnInit {
     );
   }
 
-  onEditMany(values: Coin[]): void {
+  onCreateMany(values: Coin[]): void {
     const items = values.map(value => {
       const keys = Object.keys(value);
       const result = {...value};
       keys.forEach(key => {
+        result.id = null;
         if (key !== 'id' && typeof result[key] === 'string') {
-          result[key] = result[key] + ' edited' + new Date().getSeconds();
+          result[key] = 'edited' + new Date().getSeconds();
         }
       });
       return result;
     });
-    this.store$.dispatch(CoinStoreActions.EditManyRequest({items}));
+    this.store$.dispatch(CoinStoreActions.CreateManyRequest({items}));
   }
 
 }

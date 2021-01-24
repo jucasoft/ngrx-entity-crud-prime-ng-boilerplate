@@ -15,7 +15,7 @@ import {
   searchCall, searchCatchError, searchResponse,
   selectCall, selectCatchError, selectResponse
 } from 'ngrx-entity-crud';
-import {repeat} from 'rxjs/operators';
+import {repeat, tap} from 'rxjs/operators';
 
 @Injectable()
 export class CoinStoreEffects {
