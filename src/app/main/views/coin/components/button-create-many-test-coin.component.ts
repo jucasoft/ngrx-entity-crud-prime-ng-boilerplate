@@ -35,7 +35,7 @@ export class ButtonCreateManyTestCoinComponent implements OnInit {
       keys.forEach(key => {
         result.id = null;
         if (key !== 'id' && typeof result[key] === 'string') {
-          result[key] = 'edited' + new Date().getSeconds();
+          result[key] = 'edited ' + new Date().getSeconds();
         }
       });
       return result;
