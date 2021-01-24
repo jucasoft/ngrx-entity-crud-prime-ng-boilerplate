@@ -15,6 +15,7 @@ import {PipesModule} from '@core/pipe/pipes.module';
 import {ButtonDeleteCoinComponent} from './components/button-delete-coin.component';
 import {NgLetModule} from '@core/directive/ng-let.directive';
 import {ToolbarModule} from 'primeng/toolbar';
+import {ButtonEditManyTestCoinComponent} from './components/button-edit-many-test-coin.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {ToolbarModule} from 'primeng/toolbar';
     CoinListComponent,
     ButtonNewCoinComponent,
     ButtonDeleteCoinComponent,
+    ButtonEditManyTestCoinComponent
   ],
   imports: [
     CommonModule,
