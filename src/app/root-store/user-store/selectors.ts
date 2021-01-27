@@ -20,9 +20,18 @@ export const {
   selectFilteredItems
 } = adapter.getCrudSelectors(selectState);
 
+const handler = {
+  apply: function (target, thisArg, argumentsList) {
+    console.log(`Calculate sum: ${argumentsList}`);
+    // expected output: "Calculate sum: 1,2"
+    return target(argumentsList[0], argumentsList[1]) * 10;
+  }
+};
+
 export const selectFromCompanyId = createSelector(
   selectAll,
-  (values: User[], option: { companyId: string }): User[] => {
+  new Proxy<(values: User[], option: { companyId: string }) => User[]>((values: User[], option: { companyId: string }): User[] => {
     return values.filter(value => value.companyId === option.companyId);
-  }
+  }, handler)
 );
+
