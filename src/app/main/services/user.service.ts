@@ -8,4 +8,5 @@ import {BaseCrudService} from 'ngrx-entity-crud';
 })
 export class UserService extends BaseCrudService<User> {
 	public service = environment.webServiceUri + 'user';
+  debug = false;
 }

@@ -22,9 +22,17 @@ export class UserMainComponent implements OnInit {
 
   ngOnInit(): void {
     this.store$.dispatch(UserStoreActions.SearchRequest({queryParams: {}}));
+    //
+    //
+    //
     this.store$.dispatch(AddressStoreActions.SearchRequest({queryParams: {}}));
+    //
+    //
+    //
     this.store$.dispatch(CompanyStoreActions.SearchRequest({queryParams: {}}));
-
+    //
+    //
+    //
     this.user$ = this.store$.select(UserStoreRelationshipSelectors.selectUser, '1');
     this.users$ = this.store$.select(UserStoreRelationshipSelectors.selectUsers, ['1']);
   }

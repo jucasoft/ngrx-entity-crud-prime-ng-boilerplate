@@ -11,7 +11,7 @@ AddressStoreSelectors.selectError,
 CompanyStoreSelectors.selectError,
 UserStoreSelectors.selectError,
     (...args: string[]) => {
-      console.log('selectError.args', args);
+      // console.log('selectError.args', args);
       return args.join('');
     }
   );
@@ -22,7 +22,7 @@ AddressStoreSelectors.selectIsLoading,
 CompanyStoreSelectors.selectIsLoading,
 UserStoreSelectors.selectIsLoading,
     (...args: boolean[]) => {
-      console.log('selectIsLoading.args', args);
+      // console.log('selectIsLoading.args', args);
       return args.find((value => value));
     }
   );

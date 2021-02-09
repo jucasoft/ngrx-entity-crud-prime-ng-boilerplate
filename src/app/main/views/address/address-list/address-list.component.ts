@@ -22,11 +22,9 @@ export class AddressListComponent implements OnInit {
 
   constructor(private store$: Store<RootStoreState.State>,
               private confirmationService: ConfirmationService) {
-    console.log('AddressListComponent.constructor()');
   }
 
   ngOnInit() {
-    console.log('AddressListComponent.ngOnInit()');
 
     this.collection$ = this.store$.select(
       AddressStoreSelectors.selectAll
@@ -45,7 +43,6 @@ export class AddressListComponent implements OnInit {
   }
 
   onEdit(item) {
-    console.log('AddressListComponent.onEdit()');
 
     const data: PopUpData<Address> = {
       item,
@@ -61,7 +58,6 @@ export class AddressListComponent implements OnInit {
   }
 
   onCopy(value) {
-    console.log('AddressListComponent.onCopy()');
 
     const item = {...{}, ...value, ...{id: null}};
     const data: PopUpData<Address> = {

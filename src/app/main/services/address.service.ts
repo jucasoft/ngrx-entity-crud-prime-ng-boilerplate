@@ -4,8 +4,9 @@ import {environment} from '../../../environments/environment';
 import {BaseCrudService} from 'ngrx-entity-crud';
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: 'root'
 })
 export class AddressService extends BaseCrudService<Address> {
-	public service = environment.webServiceUri + 'address';
+  public service = environment.webServiceUri + 'address';
+  debug = false;
 }

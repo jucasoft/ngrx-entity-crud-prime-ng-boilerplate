@@ -22,11 +22,9 @@ export class CompanyListComponent implements OnInit {
 
   constructor(private store$: Store<RootStoreState.State>,
               private confirmationService: ConfirmationService) {
-    console.log('CompanyListComponent.constructor()');
   }
 
   ngOnInit() {
-    console.log('CompanyListComponent.ngOnInit()');
 
     this.collection$ = this.store$.select(
       CompanyStoreSelectors.selectAll
@@ -45,7 +43,6 @@ export class CompanyListComponent implements OnInit {
   }
 
   onEdit(item) {
-    console.log('CompanyListComponent.onEdit()');
 
     const data: PopUpData<Company> = {
       item,
@@ -61,7 +58,6 @@ export class CompanyListComponent implements OnInit {
   }
 
   onCopy(value) {
-    console.log('CompanyListComponent.onCopy()');
 
     const item = {...{}, ...value, ...{id: null}};
     const data: PopUpData<Company> = {

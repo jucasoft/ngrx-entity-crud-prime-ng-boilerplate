@@ -12,9 +12,17 @@ server.use(express.static(__dirname + '/dist/ngrx-entity-crud-prime-ng-boilerpla
 server.use(api, middlewares);
 server.use(api, router);
 
-server.get('**', function (req, res) {
-  res.sendFile(path.join(__dirname + '/dist/ngrx-entity-crud-prime-ng-boilerplate/index.html'));
-});
+// server.get('**', function (req, res) {
+//   // res.sendFile(path.join(__dirname + '/dist/ngrx-entity-crud-prime-ng-boilerplate/index.html'));
+//   const gruppo = req.headers['x-man'];
+//   let statusCode = 200;
+//   if (!gruppo || gruppo !== 'Wolverine') {
+//     statusCode = 403;
+//   }
+//   res.status(statusCode).jsonp({
+//     data: 'ok'
+//   })
+// });
 
 router.render = (req, res) => {
   res.jsonp({

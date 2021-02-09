@@ -1,14 +1,18 @@
 <div class="p-grid">
   <div class="p-col">
     <app-search [actions]="actions"></app-search>
-    <pre>{{user$ | async |json}}</pre>
-    <pre>{{users$ | async |json}}</pre>
   </div>
   <div class="p-col p-text-right">
     <app-button-new-user class="float-right mr-2"></app-button-new-user>
   </div>
 </div>
 <div class="p-grid">
+  <div class="p-col">
+    <pre>{{user$ | async |json}}</pre>
+  </div>
+  <div class="p-col">
+    <pre>{{users$ | async |json}}</pre>
+  </div>
   <div class="p-col">
     <app-user-list></app-user-list>
   </div>

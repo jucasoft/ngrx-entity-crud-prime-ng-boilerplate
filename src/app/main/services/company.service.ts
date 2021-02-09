@@ -7,5 +7,6 @@ import {BaseCrudService} from 'ngrx-entity-crud';
 	providedIn: 'root'
 })
 export class CompanyService extends BaseCrudService<Company> {
-	public service = environment.webServiceUri + 'company';
+	public service = environment.webServiceUri + 'company'
+  debug = false;
 }

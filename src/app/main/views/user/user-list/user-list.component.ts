@@ -22,12 +22,9 @@ export class UserListComponent implements OnInit {
 
   constructor(private store$: Store<RootStoreState.State>,
               private confirmationService: ConfirmationService) {
-    console.log('UserListComponent.constructor()');
   }
 
   ngOnInit() {
-    console.log('UserListComponent.ngOnInit()');
-
     this.collection$ = this.store$.select(
       UserStoreSelectors.selectAll
     ).pipe(
@@ -45,7 +42,6 @@ export class UserListComponent implements OnInit {
   }
 
   onEdit(item) {
-    console.log('UserListComponent.onEdit()');
 
     const data: PopUpData<User> = {
       item,
@@ -61,7 +57,6 @@ export class UserListComponent implements OnInit {
   }
 
   onCopy(value) {
-    console.log('UserListComponent.onCopy()');
 
     const item = {...{}, ...value, ...{id: null}};
     const data: PopUpData<User> = {

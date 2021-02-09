@@ -4,8 +4,8 @@ import {UserStoreState} from '@root-store/user-store';
 import {SlideMenuStoreState} from '@root-store/slide-menu-store';
 
 export interface State {
-address:AddressStoreState.State;
-company:CompanyStoreState.State;
-user:UserStoreState.State;
+  address: AddressStoreState.State;
+  company: CompanyStoreState.State;
+  user: UserStoreState.State;
   slide_menu: SlideMenuStoreState.State;
 }
