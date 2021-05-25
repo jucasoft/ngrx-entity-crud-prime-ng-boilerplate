@@ -1,10 +1,6 @@
 {
   "name": "ngrx-entity-crud-prime-ng-boilerplate",
-<<<<<<< HEAD
-  "version": "11.3.1",
-=======
   "version": "11.6.0",
->>>>>>> master
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
@@ -16,42 +12,6 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "@angular/animations": "^11.1.1",
-    "@angular/cdk": "^11.1.1",
-    "@angular/common": "^11.1.1",
-    "@angular/compiler": "^11.1.1",
-    "@angular/core": "^11.1.1",
-    "@angular/forms": "^11.1.1",
-    "@angular/platform-browser": "^11.1.1",
-    "@angular/platform-browser-dynamic": "^11.1.1",
-    "@angular/router": "^11.1.1",
-    "@fortawesome/fontawesome-free": "^5.15.2",
-    "@ngrx/effects": "^10.1.2",
-    "@ngrx/entity": "^10.1.2",
-    "@ngrx/router-store": "^10.1.2",
-    "@ngrx/store": "^10.1.2",
-    "@ngrx/store-devtools": "^10.1.2",
-    "deepmerge": "^4.2.2",
-    "express": "^4.17.1",
-    "json-server": "^0.16.3",
-    "ngrx-entity-crud": "^11.6.3",
-    "ngrx-entity-relationship": "^1.5.0",
-    "primeflex": "^2.0.0",
-    "primeicons": "^4.1.0",
-    "primeng": "^11.2.0",
-    "rxjs": "~6.6.3",
-    "tslib": "^2.1.0",
-    "zone.js": "~0.10.3"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^0.1101.1",
-    "@angular/cli": "^11.1.1",
-    "@angular/compiler-cli": "^11.1.1",
-    "@types/jasmine": "^3.6.3",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.19.15",
-=======
     "@angular/animations": "^11.2.11",
     "@angular/cdk": "^11.2.10",
     "@angular/common": "^11.2.11",
@@ -71,6 +31,7 @@
     "express": "^4.17.1",
     "json-server": "^0.16.3",
     "ngrx-entity-crud": "^11.6.65",
+    "ngrx-entity-relationship": "^1.5.1",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
     "primeng": "^11.4.0",
@@ -85,7 +46,6 @@
     "@types/jasmine": "^3.6.9",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.20.10",
->>>>>>> master
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",

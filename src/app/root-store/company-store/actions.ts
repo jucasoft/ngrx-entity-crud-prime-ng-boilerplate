@@ -39,6 +39,10 @@ export const {
   EditManyFailure,
   EditManySuccess,
 
+  RemoveAllSelected,
+  RemoveManySelected,
+  AddManySelected,
+
   Reset,
   Filters,
   SelectItems,
