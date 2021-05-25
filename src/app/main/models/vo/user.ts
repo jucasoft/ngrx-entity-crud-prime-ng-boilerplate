@@ -6,6 +6,7 @@ export class User {
   public lastName: string;
   public company?: Company;
   public companyId?: string;
+  public comment: Comment;
 
   /**
    * metodo statico utilizzato per recuperare l'id dell'entita.

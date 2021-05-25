@@ -1,7 +1,6 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {CommentStoreActions, RootStoreState, UserStoreActions, UserStoreSelectors} from '@root-store/index';
-import {Observable} from 'rxjs';
 import {User} from '@models/vo/user';
 import {RouterStoreActions} from '@root-store/router-store/index';
 import {ConfirmationService} from 'primeng/api';
@@ -15,9 +14,8 @@ import {PopUpData} from '@root-store/router-store/pop-up-base.component';
 })
 export class UserListComponent implements OnInit {
 
-
-  collection$: Observable<User[]>;
-  cols: any;
+  @Input()
+  collection: User;
 
   constructor(private store$: Store<RootStoreState.State>,
               private confirmationService: ConfirmationService) {
@@ -26,27 +24,6 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('UserListComponent.ngOnInit()');
-
-    this.collection$ = this.store$.select(
-      UserStoreSelectors.selectUserToCommentAll
-    );
-
-    this.store$.dispatch(
-      UserStoreActions.SearchRequest({queryParams: {_limit: 10}})
-    );
-
-    this.store$.dispatch(
-      CommentStoreActions.SearchRequest({queryParams: {}})
-    );
-
-    setInterval(() => {
-      const item: any = {
-        id: 3,
-        author: 3,
-        text: Math.random() * 10000 + ''
-      };
-      this.store$.dispatch(CommentStoreActions.EditRequest({item}));
-    }, 1000);
   }
 
   onEdit(item) {
