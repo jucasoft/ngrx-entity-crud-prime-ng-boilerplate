@@ -17,7 +17,7 @@
       <td class="ngrx-debug">{{item.lastName}}</td>
       <td class="ngrx-debug">{{item.company}}</td>
       <td class="ngrx-debug">{{item.companyId}}</td>
-      <td class="ngrx-debug">{{item.comment.text}}</td>
+      <td class="ngrx-debug">{{item.comment | json}}</td>
       <td>
         <p-button icon="fa fa-edit" class="mr-1" (click)="onEdit(item)"></p-button>
         <p-button icon="fa fa-copy" class="mr-1" (click)="onCopy(item)"></p-button>

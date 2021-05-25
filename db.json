@@ -7,7 +7,7 @@
     },
     {
       "id": 2,
-      "author": 1,
+      "author": 2,
       "text": "....."
     },
     {
@@ -17,37 +17,37 @@
     },
     {
       "id": 4,
-      "author": 2,
+      "author": 4,
       "text": "....."
     },
     {
       "id": 5,
-      "author": 3,
+      "author": 5,
       "text": "....."
     },
     {
       "id": 6,
-      "author": 3,
+      "author": 6,
       "text": "....."
     },
     {
       "id": 7,
-      "author": 4,
+      "author": 7,
       "text": "....."
     },
     {
       "id": 8,
-      "author": 4,
+      "author": 8,
       "text": "....."
     },
     {
       "id": 9,
-      "author": 5,
+      "author": 9,
       "text": "....."
     },
     {
       "id": 10,
-      "author": 5,
+      "author": 10,
       "text": "....."
     }
   ],
