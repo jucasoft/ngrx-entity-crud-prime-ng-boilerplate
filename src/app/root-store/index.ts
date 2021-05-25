@@ -10,3 +10,4 @@ export * from './slide-menu-store';
 export * from './user-store';
 export * from './company-store';
 export * from './address-store';
+export * from './comment-store';

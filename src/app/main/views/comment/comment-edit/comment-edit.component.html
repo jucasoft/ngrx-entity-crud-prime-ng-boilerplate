@@ -1,0 +1,38 @@
+<p-dialog header="{{title}}"
+          [transitionOptions]="'150ms cubic-bezier(0, 0, 0.2, 1)'"
+          [visible]="true"
+          [modal]="true"
+          [responsive]="true"
+          [style]="{width: '70em', minWidth: '200px'}"
+          [minY]="70"
+          [maximizable]="false"
+          [closable]="false"
+          (onHide)="cancel()">
+
+  <div class="p-grid">
+    <div class="p-col">
+      <form
+        class="dynamic-form"
+        [formGroup]="form">
+        <div *ngFor="let key of keys" class="p-grid">
+          <div class="p-col">
+            <label for="{{key}}"><strong>{{key}}</strong></label><br>
+            <input id="{{key}}" name="{{key}}" type="text" class="form-control" pInputText [formControlName]="key"/>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="p-col">
+      <pre>
+{{form | jsonForm | json}}
+</pre>
+    </div>
+  </div>
+
+
+  <ng-template pTemplate="footer">
+    <button pButton class="p-button-success mr-1" label="save" (click)="submit(form.getRawValue())"></button>
+    <button pButton type="button" label="Cancel" (click)="cancel()"></button>
+  </ng-template>
+
+</p-dialog>

@@ -10,6 +10,7 @@ import {SlideMenuStoreModule} from '@root-store/slide-menu-store';
 import { UserStoreModule } from '@root-store/user-store';
 import { CompanyStoreModule } from '@root-store/company-store';
 import { AddressStoreModule } from '@root-store/address-store';
+import { CommentStoreModule } from '@root-store/comment-store';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { AddressStoreModule } from '@root-store/address-store';
     UserStoreModule,
     CompanyStoreModule,
     AddressStoreModule,
+    CommentStoreModule,
   ],
   declarations: []
 })
