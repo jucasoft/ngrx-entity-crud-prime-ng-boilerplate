@@ -14,28 +14,7 @@ import {menuItemsDecorator} from '@root-store/slide-menu-store/operators';
       <p-menu [model]="items$ | async" styleClass="slide-menu" [style.width.%]="100"></p-menu>
     </p-scrollPanel>
   `,
-  styles: [`
-    .slide-header {
-      height: 70px;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: #0067b7;
-      color: #FFF;
-      font-size: x-large;
-      padding: 18px;
-    }
-
-    .slide-header i {
-      font-size: xx-large;
-    }
-
-    .p-menu {
-      width: unset !important;
-      border: unset !important;
-    }
-
-  `],
+  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })

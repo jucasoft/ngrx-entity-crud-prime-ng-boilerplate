@@ -4,7 +4,7 @@
 //$fontSize:16px;
 //
 ///* topbar */
-//$topbarBgColor:#f4f4f4;
+$topbarBgColor:var(--primary-color);
 //$topbarBorderColor:#888888;
 //$topbarButtonBgColor:#ffffff;
 //$topbarButtonBorderColor:#888888;
@@ -13,13 +13,15 @@
 //$topbarButtonHoverTextColor:#333333;
 //
 ///* sidebar */
-//$sidebarBgColor:#f4f4f4;
+$sidebarBgColor:var(--surface-b);
 //$sidebarBorderColor:#888888;
 //$sidebarAnimationDuration:.3s;
 //
 ///* mask */
 //$layoutMaskBgColor:#424242;
+$layoutmainBgColor:var(--surface-b);
 //
 ///* footer */
-$footerBgColor:#f4f4f4;
+$footerBgColor:var(--surface-b);
 $footerBorderColor:#888888;
+

@@ -1,0 +1,6 @@
+{
+  "pathView": "src/app/main/views",
+  "pathStore": "src/app/root-store",
+  "pathService": "src/app/main/services",
+  "pathVo": "src/app/main/models/vo"
+}
