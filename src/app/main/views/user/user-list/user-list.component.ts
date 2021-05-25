@@ -1,10 +1,9 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {UserStoreActions, UserStoreSelectors, RootStoreState} from '@root-store/index';
+import {CommentStoreActions, RootStoreState, UserStoreActions, UserStoreSelectors} from '@root-store/index';
 import {Observable} from 'rxjs';
 import {User} from '@models/vo/user';
 import {RouterStoreActions} from '@root-store/router-store/index';
-import {tap} from 'rxjs/operators';
 import {ConfirmationService} from 'primeng/api';
 import {PopUpData} from '@root-store/router-store/pop-up-base.component';
 
@@ -25,23 +24,29 @@ export class UserListComponent implements OnInit {
     console.log('UserListComponent.constructor()');
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.log('UserListComponent.ngOnInit()');
 
     this.collection$ = this.store$.select(
-      UserStoreSelectors.selectAll
-    ).pipe(
-      tap(values => {
-        if (values && values.length > 0) {
-          this.cols = Object.keys(values[0]);
-        }
-      })
+      UserStoreSelectors.selectUserToCommentAll
     );
 
     this.store$.dispatch(
-      UserStoreActions.SearchRequest({queryParams: {}})
+      UserStoreActions.SearchRequest({queryParams: {_limit:10}})
     );
 
+    this.store$.dispatch(
+      CommentStoreActions.SearchRequest({queryParams: {}})
+    );
+
+    setInterval(() => {
+      const item: any = {
+        id: 3,
+        author: 3,
+        comment: Math.random() * 10000 + ''
+      };
+      this.store$.dispatch(CommentStoreActions.EditRequest({item}));
+    }, 1000);
   }
 
   onEdit(item) {

@@ -37,6 +37,7 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "src/css/layout.scss",
               "src/css/sizing.css",
+              "src/css/ngrx-utils.css",
               "src/css/text.css",
               "src/css/text-align.css",
               "src/css/validator.css"

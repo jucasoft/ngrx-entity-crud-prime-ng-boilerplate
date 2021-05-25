@@ -1,7 +1,11 @@
-import {createFeatureSelector, MemoizedSelector} from '@ngrx/store';
+import {createFeatureSelector, createSelector, MemoizedSelector} from '@ngrx/store';
 
 import {adapter, State} from './state';
 import {Names} from './names';
+import {Dictionary} from '@ngrx/entity';
+import {UserStoreSelectors} from '@root-store/user-store/index';
+import {User} from '@models/vo/user';
+import {Comment} from '@models/vo/comment';
 
 export const selectState: MemoizedSelector<object, State> = createFeatureSelector<State>(Names.NAME);
 export const {

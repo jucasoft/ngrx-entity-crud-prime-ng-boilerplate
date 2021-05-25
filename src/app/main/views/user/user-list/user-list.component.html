@@ -1,17 +1,23 @@
 <p-table [value]="collection$ | async">
   <ng-template pTemplate="header">
     <tr>
-      <th *ngFor="let col of cols">
-        {{col}}
-      </th>
+      <th>id</th>
+      <th>firstName</th>
+      <th>lastName</th>
+      <th>company</th>
+      <th>companyId</th>
+      <th>comment</th>
       <th>actions</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-item>
-    <tr>
-      <td *ngFor="let col of cols">
-        {{item[col]}}
-      </td>
+    <tr class="ngrx-debug">
+      <td>{{item.id}}</td>
+      <td>{{item.firstName}}</td>
+      <td>{{item.lastName}}</td>
+      <td>{{item.company}}</td>
+      <td>{{item.companyId}}</td>
+      <td>{{item.comment}}</td>
       <td>
         <p-button icon="fa fa-edit" class="mr-1" (click)="onEdit(item)"></p-button>
         <p-button icon="fa fa-copy" class="mr-1" (click)="onCopy(item)"></p-button>
