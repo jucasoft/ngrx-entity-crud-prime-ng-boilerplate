@@ -11,13 +11,13 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-item>
-    <tr class="ngrx-debug">
-      <td>{{item.id}}</td>
-      <td>{{item.firstName}}</td>
-      <td>{{item.lastName}}</td>
-      <td>{{item.company}}</td>
-      <td>{{item.companyId}}</td>
-      <td>{{item.comment}}</td>
+    <tr>
+      <td class="ngrx-debug">{{item.id}}</td>
+      <td class="ngrx-debug">{{item.firstName}}</td>
+      <td class="ngrx-debug">{{item.lastName}}</td>
+      <td class="ngrx-debug">{{item.company}}</td>
+      <td class="ngrx-debug">{{item.companyId}}</td>
+      <td class="ngrx-debug">{{item.comment}}</td>
       <td>
         <p-button icon="fa fa-edit" class="mr-1" (click)="onEdit(item)"></p-button>
         <p-button icon="fa fa-copy" class="mr-1" (click)="onCopy(item)"></p-button>

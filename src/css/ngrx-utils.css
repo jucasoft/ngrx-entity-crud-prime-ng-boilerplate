@@ -1,12 +1,13 @@
 .ngrx-debug {
-  animation: pulse 2s infinite;
+  animation: pulse 1s infinite;
 }
 
 @keyframes pulse {
   0% {
-    background-color: #001F3F;
+    opacity: 0;
+    background-color: #FF4136;
   }
   100% {
-    background-color: #FF4136;
+    opacity: 1;
   }
 }
