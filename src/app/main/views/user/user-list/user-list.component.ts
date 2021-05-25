@@ -32,7 +32,7 @@ export class UserListComponent implements OnInit {
     );
 
     this.store$.dispatch(
-      UserStoreActions.SearchRequest({queryParams: {_limit: 15}})
+      UserStoreActions.SearchRequest({queryParams: {_limit: 10}})
     );
 
     this.store$.dispatch(
