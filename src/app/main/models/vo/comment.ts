@@ -1,6 +1,6 @@
 export class Comment {
-  public id: string = undefined;
-  public author: string = undefined;
+  public id: number = undefined;
+  public author: number = undefined;
   public comment: string = undefined;
-  static selectId: (item: Comment) => string = item => item.id;
+  static selectId: (item: Comment) => string = item => item.id + '';
 }

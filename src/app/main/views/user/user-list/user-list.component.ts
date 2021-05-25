@@ -32,7 +32,7 @@ export class UserListComponent implements OnInit {
     );
 
     this.store$.dispatch(
-      UserStoreActions.SearchRequest({queryParams: {_limit:10}})
+      UserStoreActions.SearchRequest({queryParams: {_limit: 10}})
     );
 
     this.store$.dispatch(
@@ -43,7 +43,7 @@ export class UserListComponent implements OnInit {
       const item: any = {
         id: 3,
         author: 3,
-        comment: Math.random() * 10000 + ''
+        text: Math.random() * 10000 + ''
       };
       this.store$.dispatch(CommentStoreActions.EditRequest({item}));
     }, 1000);

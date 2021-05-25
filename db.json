@@ -3,52 +3,52 @@
     {
       "id": 1,
       "author": 1,
-      "comment": "....."
+      "text": "....."
     },
     {
       "id": 2,
       "author": 1,
-      "comment": "....."
+      "text": "....."
     },
     {
       "id": 3,
       "author": 3,
-      "comment": "8322.713433176816"
+      "text": "4498.938112979554"
     },
     {
       "id": 4,
       "author": 2,
-      "comment": "....."
+      "text": "....."
     },
     {
       "id": 5,
       "author": 3,
-      "comment": "....."
+      "text": "....."
     },
     {
       "id": 6,
       "author": 3,
-      "comment": "....."
+      "text": "....."
     },
     {
       "id": 7,
       "author": 4,
-      "comment": "....."
+      "text": "....."
     },
     {
       "id": 8,
       "author": 4,
-      "comment": "....."
+      "text": "....."
     },
     {
       "id": 9,
       "author": 5,
-      "comment": "....."
+      "text": "....."
     },
     {
       "id": 10,
       "author": 5,
-      "comment": "....."
+      "text": "....."
     }
   ],
   "user": [
