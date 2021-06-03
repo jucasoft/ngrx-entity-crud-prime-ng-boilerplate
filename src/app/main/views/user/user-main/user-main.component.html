@@ -8,13 +8,33 @@
 <!--    <app-button-new-user class="float-right mr-2"></app-button-new-user>-->
 <!--  </div>-->
 <!--</div>-->
+<div class="p-grid p-mt-4">
+  <div class="p-col">
+    utilizzo del selettore classico
+  </div>
+</div>
 <div class="p-grid">
   <div class="p-col">
     <app-user-list [collection]="collectionA$ | async"></app-user-list>
   </div>
 </div>
+<div class="p-grid p-mt-4">
+  <div class="p-col">
+    utilizzo del selettore con custom MEMOIZE
+  </div>
+</div>
 <div class="p-grid">
   <div class="p-col">
     <app-user-list [collection]="collectionB$ | async"></app-user-list>
+  </div>
+</div>
+<div class="p-grid p-mt-4">
+  <div class="p-col">
+    VERSIONE CON MANDRACATA
+  </div>
+</div>
+<div class="p-grid">
+  <div class="p-col">
+    <app-user-list [collection]="collectionC$ | async"></app-user-list>
   </div>
 </div>

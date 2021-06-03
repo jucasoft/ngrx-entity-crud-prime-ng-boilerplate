@@ -18,6 +18,7 @@ export class UserMainComponent implements OnInit {
 
   collectionA$: Observable<User[]>;
   collectionB$: Observable<User[]>;
+  collectionC$: Observable<User[]>;
 
   constructor(private readonly store$: Store<RootStoreState.State>) {
   }
@@ -34,7 +35,8 @@ export class UserMainComponent implements OnInit {
     this.users$ = this.store$.select(UserStoreRelationshipSelectors.selectUsers, ['1']);
 
     this.collectionA$ = this.store$.select(UserStoreSelectors.selectToCommentAll);
-    this.collectionB$ = this.store$.pipe(
+    this.collectionB$ = this.store$.select(UserStoreSelectors.selectToCommentAllCustom);
+    this.collectionC$ = this.store$.pipe(
       selectToCommentAll$()
     );
 
@@ -42,9 +44,9 @@ export class UserMainComponent implements OnInit {
       const item: any = {
         id: 3,
         author: 3,
-        text: Math.random() * 10000 + ''
+        text: Math.random() * 3000 + ''
       };
       this.store$.dispatch(CommentStoreActions.EditRequest({item}));
-    }, 5000);
+    }, 2000);
   }
 }

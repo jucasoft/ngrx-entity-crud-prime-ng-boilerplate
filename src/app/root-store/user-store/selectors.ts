@@ -1,4 +1,4 @@
-import {createFeatureSelector, createSelector, MemoizedSelector, select} from '@ngrx/store';
+import {createFeatureSelector, createSelector, createSelectorFactory, MemoizedSelector, select} from '@ngrx/store';
 import {adapter, State} from './state';
 import {Names} from './names';
 import {User} from '@models/vo/user';
@@ -8,6 +8,7 @@ import {CommentStoreSelectors} from '@root-store/comment-store/index';
 import {pipe} from 'rxjs';
 import {map, scan} from 'rxjs/operators';
 import {evalData} from '@core/utils/j-utils';
+import {customMemoizeFactory} from '@root-store/memoize';
 
 export const selectState: MemoizedSelector<object, State> = createFeatureSelector<State>(Names.NAME);
 
@@ -30,6 +31,35 @@ export const selectFromCompanyId = createSelector(
   selectAll,
   (values: User[], option: { companyId: string }): User[] => {
     return values.filter(value => value.companyId === option.companyId);
+  }
+);
+
+const customMemoize = customMemoizeFactory((prevIten: User, newIten: User) => {
+  return evalData(() => prevIten.comment === newIten.comment, false);
+});
+
+export const selectToCommentEntitiesCustom: MemoizedSelector<any, Dictionary<User>> = createSelectorFactory(customMemoize)(
+  selectEntities,
+  CommentStoreSelectors.selectAll,
+  (userDictionary: Dictionary<User>, sourceB: Comment[]): Dictionary<User> => {
+    const sourceBMap = sourceB.reduce((prev, curr) => {
+      prev[curr.author] = curr; // <+ creo una mappa che ha per key, l'id dell'autore
+      return prev;
+    }, {});
+
+    const keys = Object.keys(sourceBMap);
+
+    const resultA = keys.reduce((prev, key) => {
+      const user = userDictionary[key];
+      prev[key] = {
+        ...user,
+        comment: sourceBMap[key]
+      };
+      return prev;
+    }, {});
+    const result = {...userDictionary, ...resultA};
+    console.log('result.length', Object.keys(result).length);
+    return result;
   }
 );
 
@@ -61,7 +91,12 @@ export const selectToCommentEntities: MemoizedSelector<any, Dictionary<User>> = 
 export const selectToCommentAll = createSelector(
   selectToCommentEntities,
   (entities: Dictionary<User>) => Object.values(entities)
-)
+);
+
+export const selectToCommentAllCustom = createSelector(
+  selectToCommentEntitiesCustom,
+  (entities: Dictionary<User>) => Object.values(entities)
+);
 
 export const selectToCommentAll$ = () => {
   return pipe(
