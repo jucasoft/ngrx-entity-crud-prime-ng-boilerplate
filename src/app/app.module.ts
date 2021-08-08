@@ -15,9 +15,6 @@ import {NgLetModule} from '@core/directive/ng-let.directive';
 import {BreadcrumbModule} from '@components/breadcrumb/breadcrumb.module';
 import {ClickOutsideModule} from '@core/directive/click-outside-directive';
 import {CardModule} from 'primeng/card';
-import {APOLLO_OPTIONS} from 'apollo-angular';
-import {HttpLink} from 'apollo-angular/http';
-import {InMemoryCache} from '@apollo/client';
 
 @NgModule({
   declarations: [
@@ -40,19 +37,7 @@ import {InMemoryCache} from '@apollo/client';
     CardModule
   ],
   providers: [
-    ConfirmationService,
-    {
-      provide: APOLLO_OPTIONS,
-      useFactory: (httpLink: HttpLink) => {
-        return {
-          cache: new InMemoryCache(),
-          link: httpLink.create({
-            uri: 'https://48p1r2roz4.sse.codesandbox.io',
-          }),
-        };
-      },
-      deps: [HttpLink],
-    },
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })
