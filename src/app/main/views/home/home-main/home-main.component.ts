@@ -20,8 +20,8 @@ export class HomeMainComponent implements OnInit {
 
   renderData(clazzName: string): string {
     let result = '';
-    result += `ng generate ngrx-entity-crud:crud-store --name=${clazzName} --clazz=${clazzName}\n`;
-    result += `ng generate ngrx-entity-crud:crud-section --clazz=${clazzName}`;
+    result += `ng generate ngrx-entity-crud:store --name=${clazzName} --clazz=${clazzName}\n`;
+    result += `ng generate ngrx-entity-crud:section --clazz=${clazzName}`;
     return result;
   }
 }
