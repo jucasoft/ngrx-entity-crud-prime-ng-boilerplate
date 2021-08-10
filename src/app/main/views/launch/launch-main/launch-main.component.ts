@@ -19,24 +19,24 @@ export class LaunchMainComponent implements OnInit {
   actions: Actions<Launch> = LaunchStoreActions.actions;
 
   ngOnInit(): void {
-    this.apollo
-      .watchQuery({
-        query: gql`
-        {
-          launchesPast(limit: 10) {
-            launch_date_local
-            ships {
-              name
-              home_port
-              image
-            }
-          }
-        }
-        `,
-      })
-      .valueChanges.subscribe((result: any) => {
-      console.log('result', result);
-      debugger
-    });
+    // this.apollo
+    //   .watchQuery({
+    //     query: gql`
+    //     {
+    //       launchesPast(limit: 10) {
+    //         launch_date_local
+    //         ships {
+    //           name
+    //           home_port
+    //           image
+    //         }
+    //       }
+    //     }
+    //     `,
+    //   })
+    //   .valueChanges.subscribe((result: any) => {
+    //   console.log('result', result);
+    //   debugger
+    // });
   }
 }

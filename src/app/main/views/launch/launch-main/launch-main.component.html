@@ -1,1 +1,12 @@
-
+<p-toolbar styleClass="mb-4">
+  <ng-template pTemplate="left">
+    <app-search [actions]="actions"></app-search>
+  </ng-template>
+  <ng-template pTemplate="right">
+    <app-button-new-launch class="mr-2"></app-button-new-launch>
+    <app-button-delete-launch class="mr-2"></app-button-delete-launch>
+    <app-button-edit-many-test-launch class="mr-2"></app-button-edit-many-test-launch>
+    <app-button-create-many-test-launch></app-button-create-many-test-launch>
+  </ng-template>
+</p-toolbar>
+<app-launch-list></app-launch-list>
