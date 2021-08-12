@@ -1,0 +1,156 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Coin {
+  id: ID!
+  localized_name: String!
+  name: String!
+}
+
+type Comment {
+  Post: Post
+  body: String!
+  date: Date!
+  id: ID!
+  post_id: ID!
+}
+
+type ListMetadata {
+  count: Int
+}
+
+type Mutation {
+  createCoin(localized_name: String!, name: String!): Coin
+  createComment(body: String!, date: Date!, post_id: ID!): Comment
+  createManyCoin(data: [CoinInput]): [Coin]
+  createManyComment(data: [CommentInput]): [Comment]
+  createManyPost(data: [PostInput]): [Post]
+  createManyUser(data: [UserInput]): [User]
+  createPost(title: String!, user_id: ID!, views: Int!): Post
+  createUser(name: String!): User
+  removeCoin(id: ID!): Coin
+  removeComment(id: ID!): Comment
+  removePost(id: ID!): Post
+  removeUser(id: ID!): User
+  updateCoin(id: ID!, localized_name: String, name: String): Coin
+  updateComment(body: String, date: Date, id: ID!, post_id: ID): Comment
+  updatePost(id: ID!, title: String, user_id: ID, views: Int): Post
+  updateUser(id: ID!, name: String): User
+}
+
+type Post {
+  Comments: [Comment]
+  User: User
+  id: ID!
+  title: String!
+  user_id: ID!
+  views: Int!
+}
+
+type Query {
+  Coin(id: ID!): Coin
+  Comment(id: ID!): Comment
+  Post(id: ID!): Post
+  User(id: ID!): User
+  _allCoinsMeta(filter: CoinFilter, page: Int, perPage: Int): ListMetadata
+  _allCommentsMeta(filter: CommentFilter, page: Int, perPage: Int): ListMetadata
+  _allPostsMeta(filter: PostFilter, page: Int, perPage: Int): ListMetadata
+  _allUsersMeta(filter: UserFilter, page: Int, perPage: Int): ListMetadata
+  allCoins(filter: CoinFilter, page: Int, perPage: Int, sortField: String, sortOrder: String): [Coin]
+  allComments(filter: CommentFilter, page: Int, perPage: Int, sortField: String, sortOrder: String): [Comment]
+  allPosts(filter: PostFilter, page: Int, perPage: Int, sortField: String, sortOrder: String): [Post]
+  allUsers(filter: UserFilter, page: Int, perPage: Int, sortField: String, sortOrder: String): [User]
+}
+
+type User {
+  Posts: [Post]
+  id: ID!
+  name: String!
+}
+
+input CoinFilter {
+  id: ID
+  id_neq: ID
+  ids: [ID]
+  localized_name: String
+  localized_name_neq: String
+  name: String
+  name_neq: String
+  q: String
+}
+
+input CoinInput {
+  id: ID!
+  localized_name: String!
+  name: String!
+}
+
+input CommentFilter {
+  body: String
+  body_neq: String
+  date: Date
+  date_gt: Date
+  date_gte: Date
+  date_lt: Date
+  date_lte: Date
+  date_neq: Date
+  id: ID
+  id_neq: ID
+  ids: [ID]
+  post_id: ID
+  post_id_neq: ID
+  q: String
+}
+
+input CommentInput {
+  body: String!
+  date: Date!
+  id: ID!
+  post_id: ID!
+}
+
+input PostFilter {
+  id: ID
+  id_neq: ID
+  ids: [ID]
+  q: String
+  title: String
+  title_neq: String
+  user_id: ID
+  user_id_neq: ID
+  views: Int
+  views_gt: Int
+  views_gte: Int
+  views_lt: Int
+  views_lte: Int
+  views_neq: Int
+}
+
+input PostInput {
+  id: ID!
+  title: String!
+  user_id: ID!
+  views: Int!
+}
+
+input UserFilter {
+  id: ID
+  id_neq: ID
+  ids: [ID]
+  name: String
+  name_neq: String
+  q: String
+}
+
+input UserInput {
+  id: ID!
+  name: String!
+}
+
+
+"Date type"
+scalar Date

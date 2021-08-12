@@ -7,6 +7,8 @@ import {RouterStoreActions} from '@root-store/router-store/index';
 import {tap} from 'rxjs/operators';
 import {ConfirmationService} from 'primeng/api';
 import {PopUpData} from '@root-store/router-store/pop-up-base.component';
+import {gql} from 'apollo-angular';
+
 
 @Component({
   selector: 'app-coin-list',
@@ -43,8 +45,11 @@ export class CoinListComponent implements OnInit {
       })
     );
 
+
     this.store$.dispatch(
-      CoinStoreActions.SearchRequest({queryParams: {}})
+      CoinStoreActions.SearchRequest({
+        queryParams: allCoins
+      })
     );
 
   }
@@ -99,3 +104,13 @@ export class CoinListComponent implements OnInit {
   }
 
 }
+
+const allCoins = gql`
+  {
+    allCoins(perPage: 2){
+      id,
+      name,
+      localized_name
+    }
+  }
+`

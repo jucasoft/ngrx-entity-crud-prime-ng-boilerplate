@@ -3,11 +3,13 @@ var PROXY_CONFIG = {
 		"target": "http://localhost:3000",
 		"secure": false,
 		"logLevel": "debug",
-		"changeOrigin": true,
-		// "bypass": function (req, res, proxyOptions) {
-		// 	var debugValues = "";
-		// 	req.headers["X-Custom-Header"] = debugValues;
-		// }http://localhost:18182/kube-RS/service/v1/filter 403 (Forbidden)
+		"changeOrigin": true
+	},
+	"/graphql": {
+		"target": "http://localhost:3000",
+		"secure": false,
+		"logLevel": "debug",
+		"changeOrigin": true
 	}
 };
 

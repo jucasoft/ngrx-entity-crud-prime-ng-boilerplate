@@ -1,3 +1,5 @@
+import {gql} from 'apollo-angular';
+
 export class Coin {
     public id: string = undefined;
     /**

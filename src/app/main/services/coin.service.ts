@@ -3,13 +3,35 @@ import {Coin} from '@models/vo/coin';
 import {environment} from '../../../environments/environment';
 import {BaseCrudService, ICriteria, OptManyRequest, OptRequest, Response} from 'ngrx-entity-crud';
 import {Observable} from 'rxjs';
+import {Apollo, gql} from 'apollo-angular';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: 'root'
 })
 export class CoinService extends BaseCrudService<Coin> {
-	public service = environment.webServiceUri + 'coin';
+  public service = environment.webServiceUri + 'coin';
 
+  constructor(public http: HttpClient, private apollo: Apollo) {
+    super(http);
+  }
+
+  search(value?: ICriteria): Observable<Response<Coin[]>> {
+    console.log('CoinService.search()');
+    return this.apollo
+      .query({
+        query: value.queryParams,
+      }).pipe(
+        map(response => {
+          return ({
+            message: '',
+            hasError: false,
+            data: (response.data as any).allCoins
+          })
+        })
+      )
+  }
 
   create(opt: OptRequest<Coin>): Observable<Response<Coin>> {
     return super.create(opt);
@@ -19,9 +41,6 @@ export class CoinService extends BaseCrudService<Coin> {
     return super.createMany(opt);
   }
 
-  search(value?: ICriteria): Observable<Response<Coin[]>> {
-    return super.search(value);
-  }
 
   select(opt: OptRequest<Coin>): Observable<Response<Coin>> {
     return super.select(opt);
