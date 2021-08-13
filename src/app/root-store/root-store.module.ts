@@ -7,6 +7,8 @@ import {RouterStoreModule} from './router-store';
 import {environment} from '../../environments/environment';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {SlideMenuStoreModule} from '@root-store/slide-menu-store';
+import { GraphqlStoreModule } from '@root-store/graphql-store';
+import { CoinStoreModule } from '@root-store/coin-store';
 
 @NgModule({
   imports: [
@@ -22,6 +24,8 @@ import {SlideMenuStoreModule} from '@root-store/slide-menu-store';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    GraphqlStoreModule,
+    CoinStoreModule,
   ],
   declarations: []
 })

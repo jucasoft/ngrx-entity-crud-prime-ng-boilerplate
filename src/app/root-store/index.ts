@@ -6,3 +6,6 @@ export {RootStoreState, RootStoreSelectors, RootStoreModule};
 
 export * from './router-store';
 export * from './slide-menu-store';
+
+export * from './graphql-store';
+export * from './coin-store';
