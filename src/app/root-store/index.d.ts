@@ -6,5 +6,3 @@ export {RootStoreState, RootStoreSelectors, RootStoreModule};
 
 export * from './router-store';
 export * from './slide-menu-store';
-
-export * from './launch-store';

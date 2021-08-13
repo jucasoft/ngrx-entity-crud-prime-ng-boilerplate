@@ -7,7 +7,6 @@ import {RouterStoreModule} from './router-store';
 import {environment} from '../../environments/environment';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {SlideMenuStoreModule} from '@root-store/slide-menu-store';
-import { LaunchStoreModule } from '@root-store/launch-store';
 
 @NgModule({
   imports: [
@@ -23,7 +22,6 @@ import { LaunchStoreModule } from '@root-store/launch-store';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
-    LaunchStoreModule,
   ],
   declarations: []
 })
