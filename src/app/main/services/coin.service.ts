@@ -20,9 +20,7 @@ export class CoinService extends BaseCrudService<Coin> {
   search(value?: ICriteria): Observable<Response<Coin[]>> {
     console.log('CoinService.search()');
     return this.apollo
-      .query({
-        query: value.queryParams,
-      }).pipe(
+      .query(value.queryParams).pipe(
         map(response => {
           return ({
             message: '',
@@ -36,6 +34,7 @@ export class CoinService extends BaseCrudService<Coin> {
   create(opt: OptRequest<Coin>): Observable<Response<Coin>> {
     return super.create(opt);
   }
+
 
   createMany(opt: OptManyRequest<Coin>): Observable<Response<Coin[]>> {
     return super.createMany(opt);

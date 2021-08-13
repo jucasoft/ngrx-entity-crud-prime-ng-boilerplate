@@ -45,10 +45,10 @@ export class CoinListComponent implements OnInit {
       })
     );
 
-
+    debugger
     this.store$.dispatch(
       CoinStoreActions.SearchRequest({
-        queryParams: allCoins
+        queryParams: ALL_COINS_CRITERIA({$perPage:1})
       })
     );
 
@@ -105,12 +105,48 @@ export class CoinListComponent implements OnInit {
 
 }
 
-const allCoins = gql`
-  {
-    allCoins(perPage: 2){
-      id,
-      name,
+const ALL_COINS = gql`
+  query allCoins($perPage:Int!){
+    allCoins (perPage: $perPage){
+      id
+      name
       localized_name
     }
   }
-`
+`;
+
+const ALL_COINS_CRITERIA = (variables) => ({
+  query: ALL_COINS,
+  variables,
+})
+// const allCoins = (variables) => {
+//   return {
+//     query: gql`
+//       {
+//         allCoins(perPage: $perPage){
+//           id,
+//           name,
+//           localized_name
+//         }
+//       }
+//     `,
+//     variables
+//   }
+// }
+
+
+// const GET_NEW_PUBLIC_TODOS = gql`
+//   query getNewPublicTodos($latestVisibleId: Int!) {
+//     todos(
+//       where: { is_public: { _eq: true }, id: { _gt: $latestVisibleId } }
+//       order_by: { created_at: desc }
+//     ) {
+//       id
+//       title
+//       created_at
+//       user {
+//         name
+//       }
+//     }
+//   }
+// `;
