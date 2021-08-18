@@ -1,20 +1,10 @@
-import {gql} from 'apollo-angular';
 import {ICriteria} from 'ngrx-entity-crud';
 import {QueryOptions} from '@apollo/client/core';
+import {AllCoinsDocument, AllCoinsQuery, AllCoinsQueryVariables} from '../graphql';
 
-const QQL_ALL = gql`
-  query allCoins($perPage:Int!){
-    allCoins (perPage: $perPage){
-      id
-      name
-      localized_name
-    }
-  }
-`
-
-export const all = (variables):ICriteria<QueryOptions> => ({
+export const search = (variables: AllCoinsQueryVariables): ICriteria<QueryOptions<AllCoinsQueryVariables, AllCoinsQuery>> => ({
   queryParams: {
-    query: QQL_ALL,
+    query: AllCoinsDocument,
     variables,
   }
 })

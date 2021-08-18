@@ -224,3 +224,12 @@ edit the file angular.json, set the value of "projects/*/architect/build/options
 
 if you don't see changes to the library under development:  
 temporarily remove the library reference from the "package.json" file and rerun "npm link <library-name>". 
+
+
+>(*) TypeScript (required by other typescript plugins)
+(*) TypeScript Operations (operations and fragments)
+(*) TypeScript Apollo Angular (typed GQL services) <========== installa in automatico una versione di apollo angular comptibile
+( ) TypeScript GraphQL files modules (declarations for .graphql files)
+( ) TypeScript GraphQL document nodes (embedded GraphQL document)
+( ) Introspection Fragment Matcher (for Apollo Client)
+( ) Urql Introspection (for Urql Client)

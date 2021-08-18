@@ -45,7 +45,7 @@ export class CoinListComponent implements OnInit {
     );
 
     this.store$.dispatch(
-      CoinStoreActions.SearchRequest(CoinStoreCriteria.all({perPage: 1}))
+      CoinStoreActions.SearchRequest(CoinStoreCriteria.search({perPage: 1}))
     );
 
   }
