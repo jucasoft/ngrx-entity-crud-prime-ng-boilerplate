@@ -6,7 +6,6 @@ import {Observable} from 'rxjs';
 import {Apollo} from 'apollo-angular';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {AllCoinsGQL} from '../../../generated/graphql';
 
 @Injectable({
   providedIn: 'root'
@@ -14,33 +13,23 @@ import {AllCoinsGQL} from '../../../generated/graphql';
 export class CoinService extends BaseCrudService<Coin> {
   public service = environment.webServiceUri + 'coin';
 
-  constructor(public http: HttpClient, private apollo: Apollo, private allCoinsGQL: AllCoinsGQL) {
+  constructor(public http: HttpClient, private apollo: Apollo) {
     super(http);
   }
 
   search(value?: ICriteria): Observable<Response<Coin[]>> {
     console.log('CoinService.search()');
-    debugger
-    return this.allCoinsGQL.fetch().pipe(
-      map(response => {
-        debugger
-        return ({
-          message: '',
-          hasError: false,
-          data: (response.data as any).allCoins
+    return this.apollo
+      .query(value.queryParams).pipe(
+        map(response => {
+          debugger
+          return ({
+            message: '',
+            hasError: false,
+            data: (response.data as any).allCoins
+          })
         })
-      })
-    )
-    // return this.apollo
-    //   .query(value.queryParams).pipe(
-    //     map(response => {
-    //       return ({
-    //         message: '',
-    //         hasError: false,
-    //         data: (response.data as any).allCoins
-    //       })
-    //     })
-    //   )
+      )
   }
 
   create(opt: OptRequest<Coin>): Observable<Response<Coin>> {

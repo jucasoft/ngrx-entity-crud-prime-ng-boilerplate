@@ -1,6 +1,7 @@
 query allCoins($page: Int, $perPage: Int, $sortField:String, $sortOrder:String){
-  allPosts(page: $page, perPage: $perPage, sortField:$sortField, sortOrder:$sortOrder) {
-    title
-    views
+  allCoins(page: $page, perPage: $perPage, sortField:$sortField, sortOrder:$sortOrder) {
+    name
+    id
+    localized_name
   }
 }
