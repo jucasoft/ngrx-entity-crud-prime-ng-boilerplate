@@ -11,6 +11,12 @@ type Coin {
   name: String!
 }
 
+type Coina {
+  id: ID!
+  localized_name: String!
+  name: String!
+}
+
 type Comment {
   Post: Post
   body: String!
@@ -25,18 +31,22 @@ type ListMetadata {
 
 type Mutation {
   createCoin(localized_name: String!, name: String!): Coin
+  createCoina(localized_name: String!, name: String!): Coina
   createComment(body: String!, date: Date!, post_id: ID!): Comment
   createManyCoin(data: [CoinInput]): [Coin]
+  createManyCoina(data: [CoinaInput]): [Coina]
   createManyComment(data: [CommentInput]): [Comment]
   createManyPost(data: [PostInput]): [Post]
   createManyUser(data: [UserInput]): [User]
   createPost(title: String!, user_id: ID!, views: Int!): Post
   createUser(name: String!): User
   removeCoin(id: ID!): Coin
+  removeCoina(id: ID!): Coina
   removeComment(id: ID!): Comment
   removePost(id: ID!): Post
   removeUser(id: ID!): User
   updateCoin(id: ID!, localized_name: String, name: String): Coin
+  updateCoina(id: ID!, localized_name: String, name: String): Coina
   updateComment(body: String, date: Date, id: ID!, post_id: ID): Comment
   updatePost(id: ID!, title: String, user_id: ID, views: Int): Post
   updateUser(id: ID!, name: String): User
@@ -53,13 +63,16 @@ type Post {
 
 type Query {
   Coin(id: ID!): Coin
+  Coina(id: ID!): Coina
   Comment(id: ID!): Comment
   Post(id: ID!): Post
   User(id: ID!): User
+  _allCoinasMeta(filter: CoinaFilter, page: Int, perPage: Int): ListMetadata
   _allCoinsMeta(filter: CoinFilter, page: Int, perPage: Int): ListMetadata
   _allCommentsMeta(filter: CommentFilter, page: Int, perPage: Int): ListMetadata
   _allPostsMeta(filter: PostFilter, page: Int, perPage: Int): ListMetadata
   _allUsersMeta(filter: UserFilter, page: Int, perPage: Int): ListMetadata
+  allCoinas(filter: CoinaFilter, page: Int, perPage: Int, sortField: String, sortOrder: String): [Coina]
   allCoins(filter: CoinFilter, page: Int, perPage: Int, sortField: String, sortOrder: String): [Coin]
   allComments(filter: CommentFilter, page: Int, perPage: Int, sortField: String, sortOrder: String): [Comment]
   allPosts(filter: PostFilter, page: Int, perPage: Int, sortField: String, sortOrder: String): [Post]
@@ -84,6 +97,23 @@ input CoinFilter {
 }
 
 input CoinInput {
+  id: ID!
+  localized_name: String!
+  name: String!
+}
+
+input CoinaFilter {
+  id: ID
+  id_neq: ID
+  ids: [ID]
+  localized_name: String
+  localized_name_neq: String
+  name: String
+  name_neq: String
+  q: String
+}
+
+input CoinaInput {
   id: ID!
   localized_name: String!
   name: String!
