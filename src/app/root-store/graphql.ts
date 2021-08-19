@@ -350,23 +350,56 @@ export type UserInput = {
   name: Scalars['String'];
 };
 
-export type AllCoinsQueryVariables = Exact<{
+export type CoinSearchQueryVariables = Exact<{
   page?: Maybe<Scalars['Int']>;
   perPage?: Maybe<Scalars['Int']>;
   sortField?: Maybe<Scalars['String']>;
   sortOrder?: Maybe<Scalars['String']>;
+  filter?: Maybe<CoinFilter>;
 }>;
 
 
-export type AllCoinsQuery = { __typename?: 'Query', allCoins?: Maybe<Array<Maybe<{ __typename?: 'Coin', name: string, id: string, localized_name: string }>>> };
+export type CoinSearchQuery = { __typename?: 'Query', allCoins?: Maybe<Array<Maybe<{ __typename?: 'Coin', name: string, id: string, localized_name: string }>>> };
 
-export const AllCoinsDocument = gql`
-    query allCoins($page: Int, $perPage: Int, $sortField: String, $sortOrder: String) {
+export type CoinSelectQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type CoinSelectQuery = { __typename?: 'Query', Coin?: Maybe<{ __typename?: 'Coin', name: string, id: string, localized_name: string }> };
+
+export type CoinCreateMutationVariables = Exact<{
+  name: Scalars['String'];
+  localized_name: Scalars['String'];
+}>;
+
+
+export type CoinCreateMutation = { __typename?: 'Mutation', createCoin?: Maybe<{ __typename?: 'Coin', id: string, localized_name: string, name: string }> };
+
+export type CoinUpdateMutationVariables = Exact<{
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  localized_name: Scalars['String'];
+}>;
+
+
+export type CoinUpdateMutation = { __typename?: 'Mutation', updateCoin?: Maybe<{ __typename?: 'Coin', id: string, localized_name: string, name: string }> };
+
+export type CoinRemoveMutationVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type CoinRemoveMutation = { __typename?: 'Mutation', removeCoin?: Maybe<{ __typename?: 'Coin', id: string }> };
+
+export const CoinSearchDocument = gql`
+    query coinSearch($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: CoinFilter) {
   allCoins(
     page: $page
     perPage: $perPage
     sortField: $sortField
     sortOrder: $sortOrder
+    filter: $filter
   ) {
     name
     id
@@ -378,8 +411,86 @@ export const AllCoinsDocument = gql`
   @Injectable({
     providedIn: 'root'
   })
-  export class AllCoinsGQL extends Apollo.Query<AllCoinsQuery, AllCoinsQueryVariables> {
-    document = AllCoinsDocument;
+  export class CoinSearchGQL extends Apollo.Query<CoinSearchQuery, CoinSearchQueryVariables> {
+    document = CoinSearchDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const CoinSelectDocument = gql`
+    query coinSelect($id: ID!) {
+  Coin(id: $id) {
+    name
+    id
+    localized_name
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class CoinSelectGQL extends Apollo.Query<CoinSelectQuery, CoinSelectQueryVariables> {
+    document = CoinSelectDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const CoinCreateDocument = gql`
+    mutation coinCreate($name: String!, $localized_name: String!) {
+  createCoin(name: $name, localized_name: $localized_name) {
+    id
+    localized_name
+    name
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class CoinCreateGQL extends Apollo.Mutation<CoinCreateMutation, CoinCreateMutationVariables> {
+    document = CoinCreateDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const CoinUpdateDocument = gql`
+    mutation coinUpdate($id: ID!, $name: String!, $localized_name: String!) {
+  updateCoin(id: $id, name: $name, localized_name: $localized_name) {
+    id
+    localized_name
+    name
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class CoinUpdateGQL extends Apollo.Mutation<CoinUpdateMutation, CoinUpdateMutationVariables> {
+    document = CoinUpdateDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const CoinRemoveDocument = gql`
+    mutation coinRemove($id: ID!) {
+  removeCoin(id: $id) {
+    id
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class CoinRemoveGQL extends Apollo.Mutation<CoinRemoveMutation, CoinRemoveMutationVariables> {
+    document = CoinRemoveDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);

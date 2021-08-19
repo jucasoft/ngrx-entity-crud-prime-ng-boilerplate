@@ -1,0 +1,38 @@
+query coinSearch($page: Int, $perPage: Int, $sortField:String, $sortOrder:String, $filter: CoinFilter){
+  allCoins(page: $page, perPage: $perPage, sortField:$sortField, sortOrder:$sortOrder, filter:$filter) {
+    name
+    id
+    localized_name
+  }
+}
+
+query coinSelect($id:ID!){
+  Coin(id: $id) {
+    name
+    id
+    localized_name
+  }
+}
+
+mutation coinCreate($name:String!, $localized_name:String!){
+  createCoin(name: $name, localized_name: $localized_name){
+    id
+    localized_name
+    name
+  }
+}
+
+
+mutation coinUpdate($id:ID!, $name:String!, $localized_name:String!){
+  updateCoin(id:$id, name: $name, localized_name: $localized_name){
+    id
+    localized_name
+    name
+  }
+}
+
+mutation coinRemove($id:ID!){
+  removeCoin(id:$id){
+    id
+  }
+}

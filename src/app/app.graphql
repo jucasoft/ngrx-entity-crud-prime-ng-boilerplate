@@ -1,7 +1,0 @@
-query allCoins($page: Int, $perPage: Int, $sortField:String, $sortOrder:String){
-  allCoins(page: $page, perPage: $perPage, sortField:$sortField, sortOrder:$sortOrder) {
-    name
-    id
-    localized_name
-  }
-}
