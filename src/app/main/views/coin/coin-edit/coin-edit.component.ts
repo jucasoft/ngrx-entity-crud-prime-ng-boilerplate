@@ -22,10 +22,10 @@ export class CoinEditComponent extends PopUpBaseComponent<Coin> {
     this.form = group;
   }
 
-  acceptPerform(item: Coin): void {
-    if (item.id) {
+  acceptPerform(mutationParams: Coin): void {
+    if (mutationParams.id) {
       this.store$.dispatch(CoinStoreActions.EditRequest({
-        item, onResult: [
+        mutationParams, onResult: [
           // azione che verrà invocata al result della chiamata all'interno dell'effect.
           // chiude la popUP.
           // closePopUpAction: metodo per la creazione dell'azione di chiusura della popUP
@@ -34,7 +34,7 @@ export class CoinEditComponent extends PopUpBaseComponent<Coin> {
       }));
     } else {
       this.store$.dispatch(CoinStoreActions.CreateRequest({
-        item, onResult: [
+        mutationParams, onResult: [
           // azione che verrà invocata al result della chiamata all'interno dell'effect.
           // chiude la popUP.
           // closePopUpAction: metodo per la creazione dell'azione di chiusura della popUP

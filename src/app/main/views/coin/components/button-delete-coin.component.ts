@@ -28,8 +28,8 @@ export class ButtonDeleteCoinComponent implements OnInit {
     );
   }
 
-  onDelete(items: Coin[]): void {
-    this.store$.dispatch(CoinStoreActions.DeleteManyRequest({items}));
+  onDelete(mutationParams: Coin[]): void {
+    this.store$.dispatch(CoinStoreActions.DeleteManyRequest({mutationParams}));
   }
 
 }

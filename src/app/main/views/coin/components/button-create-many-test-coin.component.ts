@@ -29,7 +29,7 @@ export class ButtonCreateManyTestCoinComponent implements OnInit {
   }
 
   onCreateMany(values: Coin[]): void {
-    const items = values.map(value => {
+    const mutationParams = values.map(value => {
       const keys = Object.keys(value);
       const result = {...value};
       keys.forEach(key => {
@@ -40,7 +40,7 @@ export class ButtonCreateManyTestCoinComponent implements OnInit {
       });
       return result;
     });
-    this.store$.dispatch(CoinStoreActions.CreateManyRequest({items}));
+    this.store$.dispatch(CoinStoreActions.CreateManyRequest({mutationParams}));
   }
 
 }

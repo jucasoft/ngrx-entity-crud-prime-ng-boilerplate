@@ -29,7 +29,7 @@ export class ButtonEditManyTestCoinComponent implements OnInit {
   }
 
   onEditMany(values: Coin[]): void {
-    const items = values.map(value => {
+    const mutationParams = values.map(value => {
       const keys = Object.keys(value);
       const result = {...value};
       keys.forEach(key => {
@@ -39,7 +39,7 @@ export class ButtonEditManyTestCoinComponent implements OnInit {
       });
       return result;
     });
-    this.store$.dispatch(CoinStoreActions.EditManyRequest({items}));
+    this.store$.dispatch(CoinStoreActions.EditManyRequest({mutationParams}));
   }
 
 }

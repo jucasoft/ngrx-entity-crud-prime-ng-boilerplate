@@ -82,12 +82,12 @@ export class CoinListComponent implements OnInit {
 
   }
 
-  onDelete(item): void {
+  onDelete(mutationParams): void {
 
     this.confirmationService.confirm({
       message: 'Are you sure that you want to perform this action?',
       accept: () => {
-        this.store$.dispatch(CoinStoreActions.DeleteRequest({item}));
+        this.store$.dispatch(CoinStoreActions.DeleteRequest({mutationParams}));
       }
     });
 
