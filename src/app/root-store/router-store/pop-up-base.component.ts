@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {RouterStoreActions, RouterStoreSelectors} from '@root-store/router-store/index';
 import {take} from 'rxjs/operators';
@@ -23,6 +23,7 @@ export class PopUpBaseComponent<T> implements OnInit, OnDestroy {
 
   constructor(protected store$: Store<State>,
               protected ref: ChangeDetectorRef,
+              @Inject()
               protected confirmationService: ConfirmationService,
               protected fb: FormBuilder,
   ) {
