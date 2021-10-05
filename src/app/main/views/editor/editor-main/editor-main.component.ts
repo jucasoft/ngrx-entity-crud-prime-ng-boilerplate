@@ -2,10 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {RootStoreState} from '@root-store/index';
 import {HttpClient} from '@angular/common/http';
-import {map, startWith} from 'rxjs/operators';
-import {toJSON} from 'css-convert-json';
 import {Observable} from 'rxjs';
-import {SortEvent, TreeNode} from 'primeng/api';
+import {SortEvent} from 'primeng/api';
 import colorSort from 'color-sorter';
 
 @Component({
@@ -23,62 +21,7 @@ export class EditorMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.source$ = this.http.get('/assets/tailwind-light/theme.css', {responseType: 'text'}).pipe(
-      startWith(''),
-      // tap(test => console.log('test', test)),
-      map(value => {
-        const source = toJSON(value);
-        const keys = Object.keys(source.children);
-        const tree = keys.reduce((prev: any, curr: any) => {
 
-          // console.log('prev', prev);
-          if (curr === ':root' || curr === '@font-face') {
-            return prev
-          }
-          const attributes = source.children[curr].attributes
-          // console.log('attributes', attributes);
-          Object.keys(attributes).forEach((key: string) => {
-            // console.log('key', key);
-            // console.log('Array.isArray(attributes[key])', Array.isArray(attributes[key]));
-            if (Array.isArray(attributes[key])) {
-              return;
-            }
-            const colors: string[] = attributes[key].split('#');
-            // console.log('colors', colors);
-            if (colors.length > 1) {
-              if (!prev[key]) {
-                prev[key] = {};
-              }
-              colors.shift();
-              colors.map(value1 => value1.slice(0, 6)).forEach(color => {
-                if (!prev[key]['#' + color]) {
-                  prev[key]['#' + color] = [];
-                }
-                prev[key]['#' + color] = [...prev[key]['#' + color], curr];
-              });
-            }
-          })
-          return prev;
-        }, {})
-        const list: any[] = [];
-        const keysA = Object.keys(tree);
-        const treeNodes: TreeNode[] = []
-        // console.log('keysA', keysA);
-        keysA.forEach((property: string) => {
-          const treeB = tree[property];
-          const keysB: any[] = Object.keys(treeB);
-          // console.log('keysB', keysB);
-          keysB.forEach((color: string) => {
-            treeB[color].forEach((styleRule: string) => {
-              list.push({property, color, styleRule});
-            });
-          });
-        });
-        const colors = getDistinct('color', list).sort(sortFn('value'));
-        const properties = getDistinct('property', list)
-        return {list, colors, properties}
-      })
-    )
   }
 
   myUploader($event: any) {
