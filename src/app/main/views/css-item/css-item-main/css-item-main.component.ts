@@ -15,7 +15,12 @@ export class CssItemMainComponent implements OnInit {
   }
 
   actions: Actions<CssItem> = CssItemStoreActions.actions;
-
   ngOnInit(): void {
+  }
+
+  loadData() {
+    this.store$.dispatch(
+      CssItemStoreActions.SearchRequest({queryParams: {}})
+    );
   }
 }

@@ -42,9 +42,9 @@ export class ButtonEditManyTestCssItemComponent implements OnInit {
       if (varName) {
         const items = values.map(value => ({...value, varName}));
         this.store$.dispatch(CssItemStoreActions.EditManyRequest({
-          items,
-          onResult:[CssItemStoreActions.RemoveAllSelected]
+          items
         }));
+        this.store$.dispatch(CssItemStoreActions.SelectItems({items: []}))
       }
     });
 

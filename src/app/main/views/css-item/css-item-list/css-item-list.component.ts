@@ -44,10 +44,6 @@ export class CssItemListComponent implements OnInit {
       map(values => getDistinct('property', values))
     );
 
-    this.store$.dispatch(
-      CssItemStoreActions.SearchRequest({queryParams: {}})
-    );
-
   }
 
   onSelectionChange(items: CssItem[]): void {
