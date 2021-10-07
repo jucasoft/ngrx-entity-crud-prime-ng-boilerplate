@@ -40,9 +40,9 @@ export class ButtonEditManyTestCssItemComponent implements OnInit {
 
     ref.onClose.subscribe((varName: string) => {
       if (varName) {
-        const items = values.map(value => ({...value, varName}));
+        const mutationParams = values.map(value => ({...value, varName}));
         this.store$.dispatch(CssItemStoreActions.EditManyRequest({
-          items
+          mutationParams
         }));
         this.store$.dispatch(CssItemStoreActions.SelectItems({items: []}))
       }
