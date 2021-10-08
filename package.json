@@ -26,7 +26,7 @@
     "@ngrx/router-store": "^12.3.0",
     "@ngrx/store": "^12.3.0",
     "@ngrx/store-devtools": "^12.3.0",
-    "ngrx-entity-crud": "^12.0.3",
+    "ngrx-entity-crud": "^12.1.0",
     "deepmerge": "^4.2.2",
     "express": "^4.17.1",
     "json-server": "^0.16.3",
