@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {CssItemStoreActions, RootStoreState} from '@root-store/index';
+import {CssItemStoreActions, CssSourceStoreActions, RootStoreState} from '@root-store/index';
 import {Actions} from 'ngrx-entity-crud';
 import {CssItem} from '@models/vo/css-item';
 
@@ -21,6 +21,9 @@ export class CssItemMainComponent implements OnInit {
   loadData() {
     this.store$.dispatch(
       CssItemStoreActions.SearchRequest({queryParams: {}})
+    );
+    this.store$.dispatch(
+      CssSourceStoreActions.SelectRequest({queryParams: {}})
     );
   }
 }

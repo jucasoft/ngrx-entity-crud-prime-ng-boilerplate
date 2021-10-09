@@ -19,7 +19,7 @@ export function myMetaReducer(
 }
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
-  return localStorageSync({keys: ['css_name'], rehydrate: true})(reducer);
+  return localStorageSync({keys: ['css_name', 'css_source'], rehydrate: true})(reducer);
 }
 
 export const reducers: ActionReducerMap<AppState> = {};

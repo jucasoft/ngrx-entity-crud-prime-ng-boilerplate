@@ -1,19 +1,17 @@
 import {Injectable} from '@angular/core';
 import {CssItem} from '@models/vo/css-item';
 import {environment} from '../../../environments/environment';
-import {BaseCrudService, ICriteria, Response} from 'ngrx-entity-crud';
+import {BaseCrudService, ICriteria, OptRequest, Response} from 'ngrx-entity-crud';
 import {map, startWith} from 'rxjs/operators';
 import {toJSON} from 'css-convert-json';
 import {Observable, of} from 'rxjs';
 import colorSort from 'color-sorter';
-import {OptRequest} from 'ngrx-entity-crud';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CssItemService extends BaseCrudService<CssItem> {
   public service = environment.webServiceUri + 'css-item';
-
 
   updateMany(opt: OptRequest<CssItem[]>): Observable<Response<CssItem[]>> {
     return of({
@@ -26,7 +24,6 @@ export class CssItemService extends BaseCrudService<CssItem> {
   search(value?: ICriteria): Observable<Response<CssItem[]>> {
     return this.http.get('/assets/tailwind-light/theme.css', {responseType: 'text'}).pipe(
       startWith(''),
-      // tap(test => console.log('test', test)),
       map(value => {
         const source = toJSON(value);
         const keys = Object.keys(source.children);
