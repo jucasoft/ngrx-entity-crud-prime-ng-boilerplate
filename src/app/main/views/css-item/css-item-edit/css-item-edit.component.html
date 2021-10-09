@@ -4,7 +4,7 @@
   <div class="grid">
     <div class="col">
       <label for="varName"><strong>Var name</strong></label><br>
-      <input id="varName" name="varName" type="text" class="form-control" pInputText [formControl]="varName"/>
+      <p-dropdown id="varName" name="varName" [options]="varList" optionLabel="name" optionValue="code" [formControl]="varName" class="form-control" ></p-dropdown>
     </div>
   </div>
 </form>

@@ -11,6 +11,13 @@ export class CssItemEditComponent {
 
   form: FormGroup;
   varName: FormControl;
+  varList = [
+    '--text-color',
+    '--background-color',
+    '--border-color',
+  ].reduce((prev: string[], curr: string) => {
+    return [...prev, ...'abcd'.split('').map(value => `${curr}-${value}`)]
+  }, []).map(value => ({name: value, code: value}))
 
   constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig) {
   }
