@@ -11,10 +11,13 @@ export class CssItemEditComponent {
 
   form: FormGroup;
   varName: FormControl;
+  suffix: FormControl;
   varList = [
     '--text-color',
     '--background-color',
     '--border-color',
+    '--outline-color',
+    '--box-shadow',
   ].reduce((prev: string[], curr: string) => {
     return [...prev, ...'abcd'.split('').map(value => `${curr}-${value}`)]
   }, []).map(value => ({name: value, code: value}))
@@ -23,7 +26,9 @@ export class CssItemEditComponent {
   }
 
   ngOnInit() {
-    this.varName = new FormControl();
+    this.varName = new FormControl(null);
+    this.suffix = new FormControl(null);
+
     this.form = new FormGroup({
       varName: this.varName
     })

@@ -11,19 +11,18 @@ import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {SearchModule} from '@components/search/search.module';
 import {PipesModule} from '@core/pipe/pipes.module';
-import {ButtonEditManyTestCssItemComponent} from './components/button-edit-many-test-css-item.component';
 import {NgLetModule} from '@core/directive/ng-let.directive';
 import {ToolbarModule} from 'primeng/toolbar';
 import {RippleModule} from 'primeng/ripple';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {DropdownModule} from 'primeng/dropdown';
+import {ContextMenuModule} from 'primeng/contextmenu';
 
 @NgModule({
   declarations: [
     CssItemEditComponent,
     CssItemMainComponent,
     CssItemListComponent,
-    ButtonEditManyTestCssItemComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +39,8 @@ import {DropdownModule} from 'primeng/dropdown';
     NgLetModule,
     ToolbarModule,
     RippleModule,
-    DropdownModule
+    DropdownModule,
+    ContextMenuModule
   ],
   providers: [],
   entryComponents: []

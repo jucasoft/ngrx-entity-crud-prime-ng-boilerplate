@@ -7,7 +7,10 @@
             (click)="loadData()"
             class="p-button-success mr-2">
     </button>
-    <app-button-edit-many-test-css-item class="mr-2"></app-button-edit-many-test-css-item>
+    <button type="button" *ngLet="(itemsSelected$|async) as itemsSelected" pButton icon="pi pi-plus"
+            label="Edit many ({{itemsSelected.length}})" (click)="onEditMany(itemsSelected)"
+            [disabled]="!(itemsSelected.length > 0)"
+            class="p-button-success"></button>
   </ng-template>
   <ng-template pTemplate="right" *ngLet="(collection$|async) as collection">
     <button type="button"
