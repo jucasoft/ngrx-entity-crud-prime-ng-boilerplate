@@ -17,6 +17,7 @@ import {RippleModule} from 'primeng/ripple';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {DropdownModule} from 'primeng/dropdown';
 import {ContextMenuModule} from 'primeng/contextmenu';
+import {ListboxModule} from 'primeng/listbox';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {ContextMenuModule} from 'primeng/contextmenu';
     ToolbarModule,
     RippleModule,
     DropdownModule,
-    ContextMenuModule
+    ContextMenuModule,
+    ListboxModule
   ],
   providers: [],
   entryComponents: []

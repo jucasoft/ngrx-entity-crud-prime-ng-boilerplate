@@ -1,4 +1,4 @@
-import {createFeatureSelector, MemoizedSelector} from '@ngrx/store';
+import {createFeatureSelector, createSelector, MemoizedSelector} from '@ngrx/store';
 
 import {State} from './css-source.state';
 import {Names} from './css-source.names';
@@ -16,3 +16,16 @@ export const {
   selectResponses,
 } = getSingeCrudSelectors<CssSource, object>(selectState)
 
+const getRootVars: (item: CssSource) => { [key: string]: string } = (item: CssSource) => item.children[':root'].attributes;
+
+export const selectRootVarsObj: MemoizedSelector<object, any> = createSelector(
+  selectItem,
+  getRootVars
+);
+
+export const selectRootVarsArray: MemoizedSelector<object, any> = createSelector(
+  selectRootVarsObj,
+  (varsObj: { [key: string]: string }) => {
+    return Object.keys(varsObj).map((key, id) => ({id, key, value: varsObj[key]}))
+  }
+);

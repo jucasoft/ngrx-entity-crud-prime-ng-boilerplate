@@ -4,7 +4,9 @@
   <div class="grid">
     <div class="col">
       <label for="varName"><strong>Var name</strong></label><br>
-      <p-dropdown id="varName" name="varName" [options]="varList" optionLabel="name" optionValue="code" [formControl]="varName" class="form-control" ></p-dropdown>
+      <p-listbox id="varName" name="varName"
+                 [style]="{'max-height': '150px','min-height': '100px', 'overflow':'hidden'}"
+                 [options]="varList$ | async" optionLabel="label" optionValue="value" [formControl]="varName" class="form-control"></p-listbox>
     </div>
   </div>
 </form>
