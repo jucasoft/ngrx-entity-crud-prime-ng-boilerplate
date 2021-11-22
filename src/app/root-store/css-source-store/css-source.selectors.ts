@@ -26,6 +26,9 @@ export const selectRootVarsObj: MemoizedSelector<object, any> = createSelector(
 export const selectRootVarsArray: MemoizedSelector<object, any> = createSelector(
   selectRootVarsObj,
   (varsObj: { [key: string]: string }) => {
-    return Object.keys(varsObj).map((key, id) => ({id, key, value: varsObj[key]}))
+    return Object.keys(varsObj).map((key, id) => {
+      const type = varsObj[key].indexOf('#') === 0 ? 'color' : 'any';
+      return {id, key, value: varsObj[key], type}
+    })
   }
 );

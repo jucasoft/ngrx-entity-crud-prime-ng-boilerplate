@@ -9,3 +9,4 @@ export * from './slide-menu-store';
 
 export * from './css-item-store';
 export * from './css-source-store';
+export * from './css-var-store';

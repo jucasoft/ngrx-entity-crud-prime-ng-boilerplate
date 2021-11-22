@@ -9,6 +9,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {SlideMenuStoreModule} from '@root-store/slide-menu-store';
 import { CssItemStoreModule } from '@root-store/css-item-store';
 import { CssSourceStoreModule } from '@root-store/css-source-store';
+import { CssVarStoreModule } from '@root-store/css-var-store';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { CssSourceStoreModule } from '@root-store/css-source-store';
     }),
     CssItemStoreModule,
     CssSourceStoreModule,
+    CssVarStoreModule,
   ],
   declarations: []
 })

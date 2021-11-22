@@ -5,8 +5,20 @@
     <div class="col">
       <label for="varName"><strong>Var name</strong></label><br>
       <p-listbox id="varName" name="varName"
-                 [style]="{'max-height': '150px','min-height': '100px', 'overflow':'hidden'}"
-                 [options]="varList$ | async" optionLabel="label" optionValue="value" [formControl]="varName" class="form-control"></p-listbox>
+                 [listStyle]="{'max-height':'250px'}"
+                 [options]="varList$ | async"
+                 optionLabel="value"
+                 optionValue="key"
+                 [formControl]="varName" class="form-control">
+        <ng-template let-item pTemplate="item">
+          <div class="var-item" *ngIf="item.type === 'color'">
+            <div>{{item.name}}</div>
+          </div>
+          <div class="var-item" *ngIf="item.type === 'any'">
+            <div>{{item.name}}</div>
+          </div>
+        </ng-template>
+      </p-listbox>
     </div>
   </div>
 </form>
