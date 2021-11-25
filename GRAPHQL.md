@@ -1,10 +1,10 @@
-creare nuovo progetto angular
+create new angular project
 ng new testGQL
 
-installare serverino json-graphql-server:https://github.com/marmelab/json-graphql-server
+install server json-graphql-server:https://github.com/marmelab/json-graphql-server
 npm i -g json-graphql-server
 
-creare file db.js
+create file db.js
 ```js
 module.exports = {
     coin: [
@@ -14,22 +14,22 @@ module.exports = {
 }
 ```
 
-aggiungere script  "scripts":
+add script "scripts":
 {
 "start:glq": "json-graphql-server db.js",
 },
 
 
-istruzionei per installare graphql-code-generator
+instructions to install graphql-code-generator
 
 npm install --save graphql
 npm install --save-dev @graphql-codegen/cli
 npm i
 
-inizializzare il progetto
+initialize project
 npx graphql-codegen init
 
-appaiono una serie di scelte:
+a series of choices appear:
 
 ? What type of application are you building? Application built with Angular
 ? Where is your schema?: (path or url) http://localhost:4000 <======= queste impostazioni potranno essere cambiate in un seconod momento
@@ -44,24 +44,24 @@ appaiono una serie di scelte:
 ( ) Urql Introspection (for Urql Client)
 
 
-nei test eseguiti sul mio pc, il processo di inizializzazione aveva aggiunto in automatico le librerie dei plugin
-dalla macchina virtuale ho dovuto installarli a mano
+in the tests performed on my pc, the initialization process had automatically added the plugin libraries.
+In the virtual machine I had to install them manually
 
 npm i -D @graphql-codegen/typescript
 npm i -D @graphql-codegen/typescript-operations
 npm i -D @graphql-codegen/typescript-apollo-angular
 npm i -D @graphql-codegen/introspection
 
-installare e configurare apollo angular:
+Install and configure apollo angular:
 npm i @apollo/client
 npm i apollo-angular
 
-aggiungere la configurazione nel modulo principale come da guida online e fare attenzione da dove vengono importati i moduli.
+add the configuration in the main module as in the online guide and be careful where the modules are imported from.
 ```
 import {HttpClientModule} from '@angular/common/http';
 import {APOLLO_OPTIONS} from 'apollo-angular';
 import {HttpLink} from 'apollo-angular/http';
-import {InMemoryCache} from '@apollo/client/core'; <<=== intellij importa questo modulo da '@apollo/client' dando parecchi errori.
+import {InMemoryCache} from '@apollo/client/core'; <<=== intellij import this module from '@apollo/client' reporting several errors.
 
 @NgModule({
   imports: [BrowserModule, HttpClientModule],
@@ -83,7 +83,7 @@ import {InMemoryCache} from '@apollo/client/core'; <<=== intellij importa questo
 export class AppModule {}
 ```
 
-ed aggiuno lo script per la generazione
+and added the script for the generation
 ```
 {
   "scripts": {
@@ -92,7 +92,7 @@ ed aggiuno lo script per la generazione
 }
 ```
 
-creo il file src/app/app.graphql:
+create file src/app/app.graphql:
 ```
 query allpost{
   allPosts {
@@ -102,9 +102,9 @@ query allpost{
 }
 ```
 
-lanciare il comando "npm run generate"
+run command "npm run generate"
 
-testare il funzionameto della chiamata, aggiungere a componente app.component.ts:
+test the function of the call, add to app.component.ts component:
 ```
   constructor(private allpostGQL: AllpostGQL) {
     debugger
