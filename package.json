@@ -8,7 +8,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test-all-nec": "ng generate ngrx-entity-crud:store --name=crud-plural --clazz=CrudPlural --type=CRUD-PLURAL && ng generate ngrx-entity-crud:store --name=crud-singular --clazz=CrudSingular --type=CRUD-SINGULAR && ng generate ngrx-entity-crud:store --name=crud-base --clazz=Crudbase --type=BASE && ng generate ngrx-entity-crud:store --name=crud-graphql --clazz=CrudGrapql --type=CRUD+GRAPHQL && ng generate ngrx-entity-crud:section --clazz=CrudSingular --lib=primeng/singular && ng generate ngrx-entity-crud:section --clazz=CrudPlural --lib=primeng/plural && ng generate ngrx-entity-crud:section --clazz=CrudPlural --lib=no-libs"
+    "test-all-nec--dry-run": "ng generate ngrx-entity-crud:store --name=crud-plural --clazz=CrudPlural --type=CRUD-PLURAL --dry-run && ng generate ngrx-entity-crud:store --name=crud-singular --clazz=CrudSingular --type=CRUD-SINGULAR --dry-run && ng generate ngrx-entity-crud:store --name=crud-base --clazz=Crudbase --type=BASE --dry-run && ng generate ngrx-entity-crud:section --clazz=CrudSingular --lib=primeng/singular --dry-run && ng generate ngrx-entity-crud:section --clazz=CrudPlural --lib=primeng/plural --dry-run && ng generate ngrx-entity-crud:section --clazz=CrudPlural --lib=no-libs --dry-run",
+    "test-all-nec": "ng generate ngrx-entity-crud:store --name=crud-plural --clazz=CrudPlural --type=CRUD-PLURAL && ng generate ngrx-entity-crud:store --name=crud-singular --clazz=CrudSingular --type=CRUD-SINGULAR && ng generate ngrx-entity-crud:store --name=crud-base --clazz=Crudbase --type=BASE && ng generate ngrx-entity-crud:section --clazz=CrudSingular --lib=primeng/singular && ng generate ngrx-entity-crud:section --clazz=CrudPlural --lib=primeng/plural && ng generate ngrx-entity-crud:section --clazz=CrudPlural --lib=no-libs"
   },
   "private": true,
   "dependencies": {
