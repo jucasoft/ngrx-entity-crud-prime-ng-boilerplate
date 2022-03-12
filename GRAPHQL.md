@@ -1,5 +1,3 @@
-create new angular project
-ng new testGQL
 
 install server json-graphql-server:https://github.com/marmelab/json-graphql-server
 npm i -g json-graphql-server
@@ -8,8 +6,8 @@ create file db.js
 ```js
 module.exports = {
     coin: [
-        { id: 1, title: "Lorem Ipsum", views: 254, user_id: 123 },
-        { id: 2, title: "Sic Dolor amet", views: 65, user_id: 456 },
+        { id: 1, title: "Lorem Ipsum", views: 254 },
+        { id: 2, title: "Sic Dolor amet", views: 65 },
     ]
 }
 ```
