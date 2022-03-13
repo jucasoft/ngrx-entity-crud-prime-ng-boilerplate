@@ -1,4 +1,45 @@
 {
+  "crud-singular":
+    {
+      "id": 5,
+      "name": "name",
+      "value": "value"
+    }
+  ,
+  "crud-singular-no-libs":
+    {
+      "id": 5,
+      "name": "name",
+      "value": "value"
+    }
+  ,
+  "crud-plural": [
+    {
+      "id": 1,
+      "name": "name",
+      "value": "value"
+    },
+    {
+      "id": 2,
+      "name": "name",
+      "value": "value"
+    },
+    {
+      "id": 3,
+      "name": "name",
+      "value": "value"
+    },
+    {
+      "id": 4,
+      "name": "name",
+      "value": "value"
+    },
+    {
+      "id": 5,
+      "name": "name",
+      "value": "value"
+    }
+  ] ,
   "coin": [
     {
       "id": 1,
